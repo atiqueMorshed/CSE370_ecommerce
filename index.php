@@ -43,12 +43,24 @@
     <div class="carousel-inner">
       <div class="carousel-item active">
         <img src="img/hs01.jpg" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Onek Sundor Basha 01</h5>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero delectus voluptatum dignissimos, iusto, necessitatibus in!</p>
+          </div>
       </div>
       <div class="carousel-item">
         <img src="img/hs01.jpg" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Onek Sundor Basha 02</h5>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero delectus voluptatum dignissimos, iusto, necessitatibus in!</p>
+          </div>
       </div>
       <div class="carousel-item">
         <img src="img/hs01.jpg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Onek Sundor Basha 03</h5>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero delectus voluptatum dignissimos, iusto, necessitatibus in!</p>
+        </div>
       </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
