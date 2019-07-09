@@ -33,6 +33,10 @@
       </div>
     </div>
   </nav> <!-- top navbar fixed [END] -->
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9b48e03d9fcab5dd3be0b6d63e8aa40f3ec40695
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel"> <!-- top img slider [START] -->
     <ol class="carousel-indicators">
       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -59,6 +63,10 @@
       <span class="sr-only">Next</span>
     </a>
   </div> <!-- top img slider [END] -->
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9b48e03d9fcab5dd3be0b6d63e8aa40f3ec40695
 <script src="js/jquery-3.4.1.min.js"></script>
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
