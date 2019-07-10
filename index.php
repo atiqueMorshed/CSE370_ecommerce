@@ -23,7 +23,7 @@
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Products</a>
         <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">Appartment</a>
+          <a class="dropdown-item" href="#">Apartment</a>
           <a class="dropdown-item" href="#">Villa</a>
         </div>
       </li>
@@ -43,11 +43,14 @@
       <a class="nav-link p-2" href="#"><img src="img/topnav_gp.png"></a>
       </li>
       <li class="navbar-nav">
-            <a href="#" class="nav-item nav-link">Login</a>
+            <a href="signup.php" class="nav-item nav-link">Login</a>
       </li>
 
     </ul>
 </nav>
+
+
+
 
 <script src="js/jquery-3.4.1.min.js"></script>
 <script src="js/popper.min.js"></script>
