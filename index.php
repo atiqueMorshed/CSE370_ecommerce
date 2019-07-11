@@ -46,12 +46,11 @@
             <li class="navbar-nav">
                   <a href="#" class="nav-item nav-link">Login</a>
             </li>
-
           </ul> <!-- Links Right [END]-->
         </div>
       </nav> <!-- top navbar [END]-->
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    </body>
+  </body>
 </html>
