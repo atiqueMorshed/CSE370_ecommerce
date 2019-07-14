@@ -7,6 +7,6 @@
   <title>Login</title>
 </head>
 <body>
-  <?php include_once 'resource/Database.php' ?>
+  <?php include_once 'resources/Database.php' ?>
 </body>
 </html>
