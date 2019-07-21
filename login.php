@@ -9,6 +9,7 @@
 		$form_errors = array_merge($form_errors, check_empty_fields($required_fields));
 		if(empty($form_errors)) {
 			$user = $_POST['username'];
+			$email = $_POST['email'];
 			$password = $_POST['password'];
 
 			$sqlQuery = "SELECT* FROM user WHERE username = :username";
@@ -16,13 +17,13 @@
 			$statement->execute(array(':username' => $user));
 
 			while($row = $statement->fetch()) {
-				$username =  $row['USERNAME'];
-				$hashed_password = $row['password'];
+				$user =  $row['USERNAME'];
+				$hashed_password = $row['Password'];
 				$email = $row['EMAIL'];
 
 
 				if(password_verify($password, $hashed_password)){
-					$_SESSION['username'] = $username;
+					$_SESSION['username'] = $user;
 					$_SESSION['email'] = $email;
 					header("location: index.php");
 				}
@@ -81,13 +82,23 @@
 		if (!empty($form_errors)) echo show_errors($form_errors);
 	?>
   <!-- Login Section -->
-  <form method="post" action="">
-    <table>
-      <tr><td>Username:</td><td><input type="text" value="" name="username"></td></tr>
-      <tr><td>Password:</td><td><input type="password" value="" name="password"></td></tr>
-      <tr><td></td><td><input style="float: right" type="submit" name="loginbtn" value="Sign In"></td></tr>
-    </table>
-  </form>
+	<div class="container-fluid h-100">
+    <div class="row justify-content-center align-items-center h-100">
+        <div class="col col-sm-6 col-md-6 col-lg-4 col-xl-3">
+            <form method="post" action="">
+                <div class="form-group">
+                    <input _ngcontent-c0="" class="form-control form-control-lg" placeholder="Username" type="text" name="username">
+                </div>
+                <div class="form-group">
+                    <input class="form-control form-control-lg" placeholder="Password" type="password" name="password">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-info btn-lg btn-block" name="loginbtn">Sign In</button>
+                </div>
+            </form>
+        </div>
+    </div>
+	</div>
   <!-- Login Section end -->
 
 

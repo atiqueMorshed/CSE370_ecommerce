@@ -33,19 +33,19 @@
   <div class="container-fluid h-100">
     <div class="row justify-content-center align-items-center h-100">
         <div class="col col-sm-6 col-md-6 col-lg-4 col-xl-3">
-            <form action="">
+            <form method="post" action="">
                 <div class="form-group">
-                    <input _ngcontent-c0="" class="form-control form-control-lg" placeholder="User email" type="text">
+                    <input _ngcontent-c0="" class="form-control form-control-lg" placeholder="Username" type="text" name="username">
                 </div>
                 <div class="form-group">
-                    <input class="form-control form-control-lg" placeholder="Password" type="password">
+                    <input class="form-control form-control-lg" placeholder="Password" type="password" name="password">
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-info btn-lg btn-block">Sign In</button>
+                    <button class="btn btn-info btn-lg btn-block" name="loginbtn">Sign In</button>
                 </div>
             </form>
         </div>
     </div>
-</div>
+	</div>
 </body>
 </html>
