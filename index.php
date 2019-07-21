@@ -1,3 +1,4 @@
+<?php include_once 'resources/session.php' ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,8 +55,13 @@
 							<a href=""><i class="fa fa-linkedin"></i></a>
 						</div>
 						<div class="user-panel">
-							<a href="registration.php"><i class="fa fa-user-circle-o"></i> Register</a>
-							<a href="login.php"><i class="fa fa-sign-in"></i> Login</a>
+							<?php if(!isset($_SESSION['username'])): ?>
+								<a href="registration.php"><i class="fa fa-user-circle-o"></i> Register</a>
+								<a href="login.php"><i class="fa fa-sign-in"></i> Login</a>
+							<?php else: ?>
+								<a href=""><i class="fa fa-user-circle-o"></i> Profile</a>
+								<a href="logout.php"><i class="fa fa-sign-in"></i> Logout</a>
+							<?php endif ?>
 						</div>
 					</div>
 				</div>

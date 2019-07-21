@@ -71,10 +71,10 @@
 
 </head>
 <body>
-	<!-- Page Preloder -->
-	<div id="preloder">
-		<div class="loader"></div>
-	</div>
+  <!-- Page Preloder -->
+  <div id="preloder">
+    <div class="loader"></div>
+  </div>
 
   <!-- Login Section -->
     <?php
@@ -85,7 +85,9 @@
     ?>
   <form method="post" action="">
     <table>
-      <tr><td>Username:</td><td><input type="text" value="" name="username"></td></tr>
+      <label for="barca">Username</label>
+      <input type="text" value="" name="username"><br />
+
       <tr><td>Name:</td><td><input type="text" value="" name="name"></td></tr>
       <tr><td>Email:</td><td><input type="email" value="" name="email"></td></tr>
       <tr><td>Password:</td><td><input type="password" value="" name="password"></td></tr>
