@@ -72,7 +72,7 @@
 							<i class="fa fa-bars"></i>
 						</div>
 						<ul class="main-menu">
-							<li><a href="index.html">Home</a></li>
+							<li><a href="index.php">Home</a></li>
 							<li><a href="categories.html">FEATURED LISTING</a></li>
 							<li><a href="about.html">ABOUT US</a></li>
 							<li><a href="single-list.html">Pages</a></li>
@@ -104,11 +104,62 @@
 	</div>
 
 
+
+	<!--Search bar-->
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-7">
+			<form action="">
+				<div class="input-group p-5">
+					<input type="text" class="form-control" placeholder="Search" name="search" maxlength="20">
+					<div class="input-group-btn">
+						<button class="btn btn-secondary bg-primary" id="srch" type="submit">
+							<b class="glyphicon glyphicon-search">Find Property</b>
+						</button>
+					</div>
+				</div>
+			</form>
+	</div>
+	<!--Search bar End-->
+
+	<!--Sort bar-->
+	<div class="col-sm-4">
+		<div class="form-group p-5">
+				<select class="form-control bg-secondary text-white">
+					<option disabled selected>Sort By</option>
+					<option>Price (Low to High)</option>
+					<option>Price (High to Low)</option>
+					<option>Name (Ascending)</option>
+					<option>Name (Descending)</option>
+					<option>Size (Ascending)</option>
+					<option>Size (Descending)</option>
+				</select>			  
+				</div>
+			</div>                                                                            
+		</div>
+	</div>
+	<!--Sort bar End-->
+
+	<!--Filter Panel-->
+					<div class="pl-3">
+							<div class="col-sm-2 border border-warning">
+								<button type="button" class="btn btn-success btn-block" data-toggle="collapse" data-target="#FilterDropDown"><strong>Filter</strong></button>
+								<div id="FilterDropDown" class="collapse">
+								<p>Lorem ipsum dolor sit amet consectetur 
+									adipisicing elit. Velit accusamus 
+									necessitatibus architecto. Veniam, sapiente.
+									 Quisquam porro modi accusantium error sint? 
+									 Ut laborum omnis corrupti dicta voluptas excepturi.
+									  Accusantium, asperiores vel?</p> </div>
+									 </div>
+							</div>
+						
+
 	<!-- page -->
 	<section class="page-section categories-page">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-4 col-md-6">
+				<div class="col-lg-4">
 					<!-- feature -->
 					<div class="feature-item">
 						<div class="feature-pic set-bg" data-setbg="img/feature/1.jpg">
