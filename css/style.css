@@ -2089,9 +2089,6 @@ ol {
 		margin-right: 20px;
 	}
 }
-.btn .btn-info .btn-lg .btn-block {
-	color:#fff;background-color:teal;border-color:#005a5a
-}
 @media only screen and (max-width: 370px) {
 	.room-info .rf-left,
 	.room-info .rf-right {

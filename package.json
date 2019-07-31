@@ -1,0 +1,25 @@
+{
+  "name": "cse370_ecommerce",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArrowX17/CSE370_ecommerce.git"
+  },
+  "author": "ArrowX17",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ArrowX17/CSE370_ecommerce/issues"
+  },
+  "homepage": "https://github.com/ArrowX17/CSE370_ecommerce#readme",
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.15.0",
+    "sweetalert2": "^8.14.0"
+  }
+}

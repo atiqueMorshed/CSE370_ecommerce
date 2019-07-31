@@ -9,7 +9,6 @@
 		$form_errors = array_merge($form_errors, check_empty_fields($required_fields));
 		if(empty($form_errors)) {
 			$user = $_POST['username'];
-			$email = $_POST['email'];
 			$password = $_POST['password'];
 
 			$sqlQuery = "SELECT* FROM user WHERE username = :username";
@@ -24,20 +23,19 @@
 
 				if(password_verify($password, $hashed_password)){
 					$_SESSION['username'] = $user;
-					$_SESSION['email'] = $email;
-					header("location: index.php");
+					redirectTo(index);
 				}
 				else{
-					$result = "<p style='padding: 20px; color: red; border:1px solid gray'>Invalid username or password.</p>";
+					$result = flashMessage("Invalid username or password.");
 				}
 			}
 		}
 		else {
 			if (count($form_errors) == 1) {
-        $result = "<p style='color: red;'>There was 1 error in the form.</p>";
+        $result = flashMessage("There was 1 error in the form.");
       }
       else{
-        $result = "<p style='color: red;'>There were " .count($form_errors). " error in the form.</p>";
+        $result = flashMessage("There were " .count($form_errors). " errors in the form.");
       }
 		}
 	}
@@ -60,7 +58,6 @@
 	<link rel="stylesheet" href="css/font-awesome.min.css"/>
 	<link rel="stylesheet" href="css/animate.css"/>
 	<link rel="stylesheet" href="css/owl.carousel.css"/>
-	<link rel="stylesheet" href="css/style.css"/>
 
 
 	<!--[if lt IE 9]>
@@ -75,16 +72,20 @@
 		<div class="loader"></div>
 	</div>
 
-	<?php
-		if (isset($result)) echo $result;
-	?>
-	<?php
-		if (!empty($form_errors)) echo show_errors($form_errors);
-	?>
+
   <!-- Login Section -->
 	<div class="container-fluid h-100">
     <div class="row justify-content-center align-items-center h-100">
         <div class="col col-sm-6 col-md-6 col-lg-4 col-xl-3">
+					<div>
+						<?php
+							if (isset($result)) echo $result;
+						?>
+						<?php
+							if (!empty($form_errors)) echo show_errors($form_errors);
+						?>
+					</div>
+					<div class="clearfix"></div>
             <form method="post" action="">
                 <div class="form-group">
                     <input _ngcontent-c0="" class="form-control form-control-lg" placeholder="Username" type="text" name="username">
@@ -92,9 +93,19 @@
                 <div class="form-group">
                     <input class="form-control form-control-lg" placeholder="Password" type="password" name="password">
                 </div>
+								<div class="checkbox">
+									<label>
+										<input name="remember" type="checkbox"> Remember me
+									</label>
+								</div>
+
                 <div class="form-group">
-                    <button class="btn btn-info btn-lg btn-block" name="loginbtn">Sign In</button>
+                    <button class="btn-lg btn-block site-btn" name="loginbtn">Sign In</button>
                 </div>
+								<div class="form-group">
+	                  <p>Not a member? <a href="registration.php">Register<a/></p>
+										<p> Go back to <a href="index.php">Homepage</a></p>
+	              </div>
             </form>
         </div>
     </div>
@@ -109,5 +120,8 @@
 	<script src="js/masonry.pkgd.min.js"></script>
 	<script src="js/magnific-popup.min.js"></script>
 	<script src="js/main.js"></script>
+	<script src="js/sweetalert2.all.min.js"></script>
+	<!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser -->
+	<script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
 </body>
 </html>

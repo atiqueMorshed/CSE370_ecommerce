@@ -33,12 +33,57 @@
     return $form_errors;
   }
 
+  function validate_phone_number($phone) {
+     // Allow +, - and . in phone number
+     $filtered_phone_number = filter_var($phone, FILTER_SANITIZE_NUMBER_INT);
+     // Remove "-" from number
+     $phone_to_check = str_replace("-", "", $filtered_phone_number);
+     // Check the lenght of number
+     // This can be customized if you want phone number from a specific country
+     if (strlen($phone_to_check) < 11 || strlen($phone_to_check) > 11) {
+        return false;
+     } else {
+       return true;
+     }
+  }
+
   function show_errors($form_errors_array) {
-    $errors = "<p><ul style='color: red;'>";
+    $errors = "<p><ul style='padding: 15px; color:black;'>";
     foreach ($form_errors_array as $the_error) {
       $errors .= "<li>{$the_error}</li>";
     }
     $errors .= "</ul></p>";
     return $errors;
   }
+  function flashMessage($message, $passOrFail = "Fail") {
+    if($passOrFail === "Pass") {
+      $data = "<div class='alert alert-success'>{$message}</p>";
+    }
+    else {
+      $data = "<div class='alert alert-secondary'>{$message}</p>";
+    }
+    return $data;
+  }
+
+  function redirectTo($page) {
+    header("Location: {$page}.php");
+  }
+
+  function checkDuplicateEntries($table, $column_name, $value, $db) {
+    try {
+      $sqlQuery = "SELECT * FROM $table WHERE $column_name=:$column_name";
+      $statement = $db->prepare($sqlQuery);
+      $statement->execute(array(":$column_name" => $value));
+
+      if($row = $statement->fetch()) {
+        return true;
+      }
+      return false;
+    } catch (PDOException $ex) {
+
+    }
+
+  }
+
+
 ?>
