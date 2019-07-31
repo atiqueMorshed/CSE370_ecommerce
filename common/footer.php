@@ -60,7 +60,7 @@
           <li><a href="">About us</a></li>
           <li><a href="">Pages</a></li>
           <li><a href="">Blog</a></li>
-          <li><a href="">Contact</a></li>
+          <li><a href="loginAdmin.php">Admin Login</a></li>
         </ul>
       </div>
       <div class="copyright">
