@@ -214,23 +214,45 @@
                   <input type="username" class="form-control form-control-lg" id="username" placeholder="Username" name="username">
                 </div>
               <div class="form-group">
-                  <input type="email" class="form-control form-control-lg" placeholder="Email" name="email">
+                  <input type="address" class="form-control form-control-lg" placeholder="Street Adress" name="street">
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <input type="address" class="form-control form-control-lg" id="city" placeholder="City" name="city">
+                </div>
+                <div class="form-group col-md-6">
+                  <input type="State" class="form-control form-control-lg" id="state" placeholder="State" name="state">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <input type="number" class="form-control form-control-lg" id="size" placeholder="Size(in acres)" name="size">
+                </div>
+                <div class="form-group col-md-6">
+                  <input type="number" class="form-control form-control-lg" id="bedroom" placeholder="Bedroom(s)" name="bedroom">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <input type="number" class="form-control form-control-lg" id="washroom" placeholder="Washroom(s)" name="washroom">
+                </div>
+                <div class="form-group col-md-6">
+                  <input type="number" class="form-control form-control-lg" id="balcony" placeholder="Balcony(s)" name="balcony">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <input type="number" class="form-control form-control-lg" id="washroom" placeholder="Washroom(s)" name="washroom">
+                </div>
+                <div class="form-group col-md-6">
+                  <input type="number" class="form-control form-control-lg" id="balcony" placeholder="Balcony(s)" name="balcony">
+                </div>
               </div>
               <div class="form-group">
-                  <input class="form-control form-control-lg" placeholder="Password" type="password" name="password">
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" name="description" placeholder="Description"></textarea>
               </div>
               <div class="form-group">
-                <input type="phone" class="form-control form-control-lg" id="phone" placeholder="(+880)-" name="phone">
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control form-control-lg" id="address" placeholder="Address" name="address">
-              </div>
-              <div class="form-group">
-                  <button class="btn-lg btn-block site-btn" type="submit" name="registerbtn" value="Register">Register</button>
-              </div>
-              <div class="form-group">
-                  <p>Already a member? <a href="login.php">Login<a/></p>
-                  <p> Go back to Homepage <a href="index.php">Here</a></p>
+                  <button class="btn-lg btn-block site-btn" type="submit" name="submit" value="Register">Submit</button>
               </div>
               </form>
           </div>
