@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Aug 01, 2019 at 09:49 AM
+-- Generation Time: Aug 01, 2019 at 10:55 AM
 -- Server version: 5.7.26
 -- PHP Version: 7.2.18
 
@@ -146,18 +146,6 @@ CREATE TABLE IF NOT EXISTS `user` (
   UNIQUE KEY `EMAIL` (`EMAIL`),
   UNIQUE KEY `PHONE` (`PHONE`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `user`
---
-
-INSERT INTO `user` (`USERNAME`, `Password`, `EMAIL`, `Name`, `ADDRESS`, `PHONE`) VALUES
-('aaaaaa', '$2y$10$aediQi48CAjcxQ8QwvMWV.UX0G1hl6DVJ2KV2riWueHTnyZenZ17S', 'a@a.com', 'a', 'a', 1787451364),
-('ArrowX17', '$2y$10$oJZ9cjOtHgQjFf0JsRFzr.CIX2J8sozXrE3pJKojHDHLofhXQX6dC', 'iamsamix17@gmail.com', 'Atique Morshed Sami', 'Dhaka', 1778752909),
-('dedadeda', '$2y$10$O5EOnQi/VYum8TJ4rKs1t.quy4mWODJOZivOsZLZ6wU.1bfLvjk8C', 'ddd@d.com', 'ddd', 'd', 1554725398),
-('Demo01', 'demo', 'demo@d.com', 'Demo Guy', 'DDD', 1768595206),
-('Demo02', '$2y$10$wIkjJ3iiOF6VsTdT6ikIcuMnMCriUbcAGSwMXG4QQ5pDTtedWYopu', 'demo@d2.com', 'Demo Guy', 'D', 2127121212),
-('Demo05', '$2y$10$ZunaDU1EFHL6shLZ/L6miOHkOeGZEVHWrYikmjdQCGQbx1nUMwcy6', 'demo@d5.com', 'Demo Guy', 'dd', 1784521365);
 
 --
 -- Constraints for dumped tables
