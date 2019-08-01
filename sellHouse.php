@@ -5,28 +5,46 @@
 
   if(isset($_POST['submit'])) {
 		$form_errors = array();
-		$required_fields=array('username', 'email', 'street', 'city', 'state');
+		$required_fields=array('username', 'password', 'street', 'city', 'state');
     $form_errors = array_merge($form_errors, check_empty_fields($required_fields));
 		if(empty($form_errors)) {
-			$user = $_POST['username'];
+			$username = $_POST['username'];
 			$password = $_POST['password'];
+
+      $street = $_POST['street'];
+      $city = $_POST['city'];
+      $state = $_POST['state'];
+      $size = $_POST['size'];
+      $bedroom = $_POST['bedroom'];
+      $washroom = $_POST['washroom'];
+      $balcony = $_POST['balcony'];
+      $pid = 0;
+      $description = $_POST['description'];
 
 			$sqlQuery = "SELECT* FROM user WHERE username = :username";
 			$statement = $db->prepare($sqlQuery);
-			$statement->execute(array(':username' => $user));
+			$statement->execute(array(':username' => $username));
 
 			while($row = $statement->fetch()) {
-				$user =  $row['USERNAME'];
+				$username =  $row['USERNAME'];
 				$hashed_password = $row['Password'];
-				$email = $row['EMAIL'];
-
 
 				if(password_verify($password, $hashed_password)){
-					$_SESSION['username'] = $user;
-					redirectTo(index);
+				//	$_SESSION['username'] = $user;
+          try {
+            $sqlInsert = "INSERT INTO preproperty(PRE_ID, username, bedroom, washroom, balcony, size, street, city, state, Description) VALUES(:pid, :username, :bedroom, :washroom, :balcony, :size, :street, :city, :state, :description)";
+
+            $statement = $db->prepare($sqlInsert);
+            $statement->execute(array(':PRE_ID'=> $pid,':username'=>$username,':bedroom'=>$bedroom,':washroom'=>$washroom,':balcony'=> $balcony,':size'=>$size,':street'=>$street,':city'=>$city,':state'=>$state,':description'=>$description));
+            if($statement->rowCount() == 1) {
+              $result = flashMessage("Thank you!", "Pass");
+            }
+          } catch (PDOException $ex) {
+              $result = flashMessage("An error has occured: " .$ex->getMessage());
+          }
 				}
 				else{
-					$result = flashMessage("Invalid username or password.");
+					$result = flashMessage("Invalid input.");
 				}
 			}
 		}
@@ -39,54 +57,6 @@
       }
 		}
 	}
-?>
-
-  if (isset($_POST['submit'])) {
-    $form_errors = array();
-    $required_fields = array('username','name','email','password','address','phone');
-    $form_errors = array_merge($form_errors, check_empty_fields($required_fields));
-    $fields_to_check_length = array('username'=>6, 'password'=> 6, 'phone' => 11);
-    $form_errors =  array_merge($form_errors, check_min_length($fields_to_check_length));
-    $form_errors = array_merge($form_errors, check_email($_POST));
-
-    $username = $_POST['username'];
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    $address = $_POST['address'];
-    $phone = $_POST['phone'];
-
-    if(checkDuplicateEntries("user", "USERNAME", $username, $db)) {
-      $result = flashMessage("Username is already taken.");
-    }
-    else if(checkDuplicateEntries("user", "EMAIL", $email, $db)) {
-      $result = flashMessage("Email is already taken.");
-    }
-
-    else if (empty($form_errors)) {
-      $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-      try {
-        $sqlInsert = "INSERT INTO user(username, password, email, name, address, phone)
-        VALUES(:username, :password, :email, :name, :address, :phone)";
-
-        $statement = $db->prepare($sqlInsert);
-        $statement->execute(array(':username'=>$username,':name'=>$name,':email'=>$email,':password'=> $hashed_password,':address'=>$address,':phone'=>$phone));
-        if($statement->rowCount() == 1) {
-          $result = flashMessage("Registration Successful", "Pass");
-        }
-      } catch (PDOException $ex) {
-          $result = flashMessage("An error has occured: " .$ex->getMessage());
-      }
-    }
-    else{
-      if (count($form_errors) == 1) {
-        $result = flashMessage("There was 1 error in the form.");
-      }
-      else{
-        $result = flashMessage("There were " .count($form_errors). " errors in the form.");
-      }
-    }
-  }
 ?>
 
 <!DOCTYPE html>
@@ -133,7 +103,7 @@
 						</div>
 						<div class="top-info">
 							<i class="fa fa-envelope"></i>
-							info.leramiz@colorlib.com
+							support@housebuy.com
 						</div>
 					</div>
 					<div class="col-lg-6 text-lg-right header-top-right">
@@ -145,8 +115,8 @@
 							<a href=""><i class="fa fa-linkedin"></i></a>
 						</div>
 						<div class="user-panel">
-							<a href=""><i class="fa fa-user-circle-o"></i> Register</a>
-							<a href=""><i class="fa fa-sign-in"></i> Login</a>
+							<a href="registration.php"><i class="fa fa-user-circle-o"></i> Register</a>
+							<a href="login.php"><i class="fa fa-sign-in"></i> Login</a>
 						</div>
 					</div>
 				</div>
@@ -162,11 +132,11 @@
 						</div>
 						<ul class="main-menu">
 							<li><a href="index.php">Home</a></li>
-							<li><a href="categories.html">FEATURED LISTING</a></li>
-							<li><a href="about.html">ABOUT US</a></li>
-							<li><a href="single-list.html">Pages</a></li>
+							<li><a href="categories.php">FEATURED LISTING</a></li>
+							<li><a href="about.php">ABOUT US</a></li>
+							<li><a href="single-list.php">Pages</a></li>
 							<li><a href="sellHouse.php">Sell Property</a></li>
-							<li><a href="contact.html">Contact</a></li>
+							<li><a href="contact.php">Contact</a></li>
 						</ul>
 					</div>
 				</div>
@@ -248,9 +218,14 @@
   					</div>
   					<div class="clearfix"></div>
             <form method="post" action="">
-                <div class="form-group">
+              <div class="form-row">
+                <div class="form-group col-md-6">
                   <input type="username" class="form-control form-control-lg" id="username" placeholder="Username" name="username">
                 </div>
+                <div class="form-group col-md-6">
+                  <input type="password" class="form-control form-control-lg" id="password" placeholder="Password" name="password">
+                </div>
+              </div>
               <div class="form-group">
                   <input type="address" class="form-control form-control-lg" placeholder="Street Adress" name="street">
               </div>
@@ -278,14 +253,7 @@
                   <input type="number" class="form-control form-control-lg" id="balcony" placeholder="Balcony(s)" name="balcony">
                 </div>
               </div>
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <input type="number" class="form-control form-control-lg" id="washroom" placeholder="Washroom(s)" name="washroom">
-                </div>
-                <div class="form-group col-md-6">
-                  <input type="number" class="form-control form-control-lg" id="balcony" placeholder="Balcony(s)" name="balcony">
-                </div>
-              </div>
+
               <div class="form-group">
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" name="description" placeholder="Description"></textarea>
               </div>

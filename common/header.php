@@ -78,11 +78,11 @@
 						</div>
 						<ul class="main-menu">
 							<li><a href="index.php">Home</a></li>
-							<li><a href="categories.html">FEATURED LISTING</a></li>
-							<li><a href="about.html">ABOUT US</a></li>
-							<li><a href="single-list.html">Pages</a></li>
+							<li><a href="categories.php">FEATURED LISTING</a></li>
+							<li><a href="about.php">ABOUT US</a></li>
+							<li><a href="single-list.php">Pages</a></li>
 							<li><a href="sellHouse.php">Sell Property</a></li>
-							<li><a href="contact.html">Contact</a></li>
+							<li><a href="contact.php">Contact</a></li>
 						</ul>
 					</div>
 				</div>
