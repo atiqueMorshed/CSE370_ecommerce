@@ -3,7 +3,45 @@
   include_once 'resources/Database.php';
   include_once 'resources/regFunc.php';
 
-  if (isset($_POST['registerbtn'])) {
+  if(isset($_POST['submit'])) {
+		$form_errors = array();
+		$required_fields=array('username', 'email', 'street', 'city', 'state');
+    $form_errors = array_merge($form_errors, check_empty_fields($required_fields));
+		if(empty($form_errors)) {
+			$user = $_POST['username'];
+			$password = $_POST['password'];
+
+			$sqlQuery = "SELECT* FROM user WHERE username = :username";
+			$statement = $db->prepare($sqlQuery);
+			$statement->execute(array(':username' => $user));
+
+			while($row = $statement->fetch()) {
+				$user =  $row['USERNAME'];
+				$hashed_password = $row['Password'];
+				$email = $row['EMAIL'];
+
+
+				if(password_verify($password, $hashed_password)){
+					$_SESSION['username'] = $user;
+					redirectTo(index);
+				}
+				else{
+					$result = flashMessage("Invalid username or password.");
+				}
+			}
+		}
+		else {
+			if (count($form_errors) == 1) {
+        $result = flashMessage("There was 1 error in the form.");
+      }
+      else{
+        $result = flashMessage("There were " .count($form_errors). " errors in the form.");
+      }
+		}
+	}
+?>
+
+  if (isset($_POST['submit'])) {
     $form_errors = array();
     $required_fields = array('username','name','email','password','address','phone');
     $form_errors = array_merge($form_errors, check_empty_fields($required_fields));
