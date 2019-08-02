@@ -45,42 +45,21 @@
 		}
 	}
 ?>
+<?php
+$page_title = "HouseBuy - Admin";
+include_once 'common/header.php';
+?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>HouseBuy - Signin</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- Favicon -->
-	<link href="img/favicon.ico" rel="shortcut icon"/>
-
-	<!-- Google Fonts -->
-	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
-
-	<!-- Stylesheets -->
-	<link rel="stylesheet" href="css/bootstrap.min.css"/>
-	<link rel="stylesheet" href="css/font-awesome.min.css"/>
-	<link rel="stylesheet" href="css/animate.css"/>
-	<link rel="stylesheet" href="css/owl.carousel.css"/>
-	<link rel="stylesheet" href="css/style.css"/>
-
-
-	<!--[if lt IE 9]>
-	  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-	<![endif]-->
-
-</head>
-<body>
-	<!-- Page Preloder -->
-	<div id="preloder">
-		<div class="loader"></div>
-	</div>
-
+	<!-- Page top section -->
+	<section class="page-top-section set-bg" data-setbg="img/page-top-bg.jpg">
+		<div class="container text-white">
+			<h2>Admin Login</h2>
+		</div>
+	</section>
+	<!--  Page top end -->
 
   <!-- Login Section -->
-	<div class="container-fluid h-100">
+	<div class="container-fluid h-50">
     <div class="row justify-content-center align-items-center h-100">
         <div class="col col-sm-6 col-md-6 col-lg-4 col-xl-3">
 					<div>
@@ -99,12 +78,7 @@
                 <div class="form-group">
                     <input class="form-control form-control-lg" placeholder="Password" type="password" name="password">
                 </div>
-								<div class="checkbox">
-									<label>
-										<input name="remember" type="checkbox"> Remember me
-									</label>
-								</div>
-
+								<!-- -->
                 <div class="form-group">
                     <button class="btn-lg btn-block site-btn" name="loginbtn">Sign In</button>
                 </div>
@@ -116,17 +90,3 @@
     </div>
 	</div>
   <!-- Login Section end -->
-
-
-	<!--====== Javascripts & Jquery ======-->
-	<script src="js/jquery-3.2.1.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/owl.carousel.min.js"></script>
-	<script src="js/masonry.pkgd.min.js"></script>
-	<script src="js/magnific-popup.min.js"></script>
-	<script src="js/main.js"></script>
-	<script src="js/sweetalert2.all.min.js"></script>
-	<!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser -->
-	<script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
-</body>
-</html>
