@@ -120,3 +120,16 @@ include_once 'common/header.php';
     </table>
   </form> -->
   <!-- Login Section end -->
+
+  	<!--====== Javascripts & Jquery ======-->
+  	<script src="js/jquery-3.2.1.min.js"></script>
+  	<script src="js/bootstrap.min.js"></script>
+  	<script src="js/owl.carousel.min.js"></script>
+  	<script src="js/masonry.pkgd.min.js"></script>
+  	<script src="js/magnific-popup.min.js"></script>
+  	<script src="js/main.js"></script>
+  	<script src="js/sweetalert2.all.min.js"></script>
+  	<!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser -->
+  	<script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+  </body>
+  </html>

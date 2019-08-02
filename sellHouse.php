@@ -94,7 +94,7 @@ include_once 'common/header.php';
               <i class="fa fa-home"></i>
               <div class="service-text">
                 <h5>Almost there</h5>
-                <p>Our agents will contact you and verify your information. They will take all the nesessary photos too!</p>
+                <p>Our agents will contact you and verify your information. They will take all the necessary photos too!</p>
               </div>
             </div>
             <div class="service-item">

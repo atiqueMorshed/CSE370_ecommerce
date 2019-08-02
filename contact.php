@@ -7,7 +7,7 @@ include_once 'common/header.php';
 	<!-- Page top section -->
 	<section class="page-top-section set-bg" data-setbg="img/page-top-bg.jpg">
 		<div class="container text-white">
-			<h2>Blog grid</h2>
+			<h2>Get in touch</h2>
 		</div>
 	</section>
 	<!--  Page top end -->
@@ -16,7 +16,7 @@ include_once 'common/header.php';
 	<div class="site-breadcrumb">
 		<div class="container">
 			<a href=""><i class="fa fa-home"></i>Home</a>
-			<span><i class="fa fa-angle-right"></i>Blog Grid</span>
+			<span><i class="fa fa-angle-right"></i>Contact Us</span>
 		</div>
 	</div>
 
@@ -57,6 +57,10 @@ include_once 'common/header.php';
 		</div>
 	</div>
 	<!-- Clients section end -->
+	<!-- load for map -->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgOI3aGuulgmuBi16PTpokqYkCCXuowrg"></script>
+	<script src="js/map.js"></script>
+
 	<?php
 	include_once 'common/footer.php';
 	 ?>
