@@ -8,8 +8,8 @@ include_once 'common/header.php';
 	<section class="hero-section set-bg" data-setbg="img/bg.jpg">
 		<div class="container hero-text text-white">
 			<h2>find your place with our local life style</h2>
-			<p>Search real estate property records, houses, condos, land and more on leramiz.com®.<br>Find property info from the most comprehensive source data.</p>
-			<a href="#" class="site-btn">VIEW DETAIL</a>
+			<p>Search real estate property records, houses, condos, land and more on houseBuy.com®.<br>Find property info from the most comprehensive source data.</p>
+			<a href="categories.php" class="site-btn">VIEW DETAIL</a>
 		</div>
 	</section>
 	<!-- Hero section end -->
@@ -550,7 +550,3 @@ include_once 'common/header.php';
 <?php
 include_once 'common/footer.php';
  ?>
-
-
-</body>
-</html>
