@@ -57,8 +57,8 @@
 							<a href=""><i class="fa fa-linkedin"></i></a>
 						</div>
 						<div class="user-panel">
-							<a href=""><i class="fa fa-user-circle-o"></i> Register</a>
-							<a href=""><i class="fa fa-sign-in"></i> Login</a>
+							<a href="registration.php"><i class="fa fa-user-circle-o"></i> Register</a>
+							<a href="login.php"><i class="fa fa-sign-in"></i> Login</a>
 						</div>
 					</div>
 				</div>

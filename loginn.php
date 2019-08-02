@@ -60,30 +60,29 @@
 								<a href="registration.php"><i class="fa fa-user-circle-o"></i> Register</a>
 								<a href="login.php"><i class="fa fa-sign-in"></i> Login</a>
 							<?php else: ?>
-								<a href=""><i class="fa fa-user-circle-o"></i> Profile</a>
-								<a href="logout.php"><i class="fa fa-sign-in"></i> Logout</a>
-							<?php endif ?>
+								<a href="registration.php"><i class="fa fa-user-circle-o"></i> Register</a>
+								<a href="login.php"><i class="fa fa-sign-in"></i> Login</a>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="container">
-			<div class="row">
-				<div class="col-12">
-					<div class="site-navbar">
-						<a href="#" class="site-logo"><img src="img/logo.png" alt=""></a>
-						<div class="nav-switch">
-							<i class="fa fa-bars"></i>
-						</div>
-						<ul class="main-menu">
-							<li><a href="index.html">Home</a></li>
-							<li><a href="categories.html">FEATURED LISTING</a></li>
-							<li><a href="about.html">ABOUT US</a></li>
-							<li><a href="single-list.html">Pages</a></li>
-							<li><a href="blog.html">Blog</a></li>
-							<li><a href="contact.html">Contact</a></li>
-						</ul>
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<div class="site-navbar">
+							<a href="#" class="site-logo"><img src="img/logo.png" alt=""></a>
+							<div class="nav-switch">
+								<i class="fa fa-bars"></i>
+							</div>
+							<ul class="main-menu">
+								<li><a href="index.php">Home</a></li>
+								<li><a href="categories.php">FEATURED LISTING</a></li>
+								<li><a href="about.php">ABOUT US</a></li>
+								<li><a href="single-list.php">Pages</a></li>
+								<li><a href="sellHouse.php">Sell Property</a></li>
+								<li><a href="contact.php">Contact</a></li>
+							</ul>
 					</div>
 				</div>
 			</div>

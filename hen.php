@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
   include_once 'resources/session.php';
   include_once 'resources/Database.php';
   include_once 'resources/regFunc.php';
@@ -25,7 +25,8 @@
 			// $statement->execute(array(':username' => $username));
 
       try {
-        //$sqlInsert = "INSERT INTO preproperty(PRE_ID, username, bedroom, washroom, balcony, size, street, city, state, Description) VALUES(:pid, :username, :bedroom, :washroom, :balcony, :size, :street, :city, :state, :description)";
+        //$sqlInsert = "INSERT INTO preproperty(PRE_ID, username, bedroom, washroom, balcony, size, street, city, state, Description)
+        VALUES(:pid, :username, :bedroom, :washroom, :balcony, :size, :street, :city, :state, :description)";
         $sqlInsert = "INSERT INTO `preproperty`(`PRE_ID`, `USERNAME`, `bedroom`, `washroom`, `balcony`, `size`, `street`, `city`, `state`, `Description`) VALUES (:pid, :username, :bedroom, :washroom, :balcony, :size, :street, :city, :state, :description)";
         $statement = $db->prepare($sqlInsert);
         $statement->execute(array(':pid'=> $pid,':username'=>$username,':bedroom'=>$bedroom,':washroom'=>$washroom,':balcony'=> $balcony,':size'=>$size,':street'=>$street,':city'=>$city,':state'=>$state,':description'=>$description));
@@ -35,7 +36,6 @@
       } catch (PDOException $ex) {
           $result = flashMessage("An error has occured: " .$ex->getMessage());
       }
-		}
 		else {
 			if (count($form_errors) == 1) {
         $result = flashMessage("There was 1 error in the form.");
@@ -43,9 +43,8 @@
       else{
         $result = flashMessage("There were " .count($form_errors). " errors in the form.");
       }
-		}
 	}
-?>
+?> -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -150,8 +149,8 @@
   <!-- seperator -->
   <br><br>
   <div class="">
-		<div class="row justify-content-center align-items-center ">
-			<h2 style="color:#30CAA0">How it works</h2>
+    <div class="row justify-content-center align-items-center ">
+          <h2 style="color:#30CAA0">How it works</h2>
     </div>
   </div>
   <br><br>
@@ -213,16 +212,9 @@
   					<div class="clearfix"></div>
             <?php if(isset($_SESSION['username'])): ?>
             <form method="post" action="">
-							<h2 style="color:#30CAA0">Sell your property.</h2>
-							<br>
-							<div class="form-group">
-									<input _ngcontent-c0="" class="form-control form-control-lg" placeholder="Property Name" type="text" name="pname">
-							</div>
-							<br>
               <div class="form-group">
                   <input type="address" class="form-control form-control-lg" placeholder="Street Adress" name="street">
               </div>
-							<br>
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <input type="address" class="form-control form-control-lg" id="city" placeholder="City" name="city">
@@ -231,7 +223,6 @@
                   <input type="State" class="form-control form-control-lg" id="state" placeholder="State" name="state">
                 </div>
               </div>
-							<br>
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <input type="number" class="form-control form-control-lg" id="size" placeholder="Size(in acres)" name="size">
@@ -240,7 +231,6 @@
                   <input type="number" class="form-control form-control-lg" id="bedroom" placeholder="Bedroom(s)" name="bedroom">
                 </div>
               </div>
-							<br>
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <input type="number" class="form-control form-control-lg" id="washroom" placeholder="Washroom(s)" name="washroom">
@@ -249,11 +239,10 @@
                   <input type="number" class="form-control form-control-lg" id="balcony" placeholder="Balcony(s)" name="balcony">
                 </div>
               </div>
-							<br>
+
               <div class="form-group">
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" name="description" placeholder="Description"></textarea>
               </div>
-							<br>
               <div class="form-group">
                   <button class="btn-lg btn-block site-btn" type="submit" name="submit" value="Register">Submit</button>
               </div>
