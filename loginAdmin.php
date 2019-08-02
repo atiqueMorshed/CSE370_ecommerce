@@ -16,14 +16,19 @@
 			$statement->execute(array(':username' => $user));
 
 			while($row = $statement->fetch()) {
+				$type = $row['type'];
 				$user =  $row['USERNAME'];
 				$hashed_password = $row['Password'];
 				$email = $row['EMAIL'];
 
-
 				if($password === $hashed_password){
 					$_SESSION['username'] = $user;
-					redirectTo(employee);
+					if($type === "Admin") {
+						redirectTo(admin);
+					}
+					else {
+						redirectTo(agent);
+					}
 				}
 				else{
 					$result = flashMessage("Invalid username or password.");
