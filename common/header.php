@@ -28,9 +28,6 @@
 </head>
 <body>
 	<!-- Page Preloder -->
-	<div id="preloder">
-		<div class="loader"></div>
-	</div>
 
 	<!-- Header section -->
 	<header class="header-section">
@@ -77,8 +74,8 @@
 							<i class="fa fa-bars"></i>
 						</div>
 						<ul class="main-menu">
-							<li><a href="index.html">Home</a></li>
-							<li><a href="categories.html">FEATURED LISTING</a></li>
+							<li><a href="index.php">Home</a></li>
+							<li><a href="categories.php">FEATURED LISTING</a></li>
 							<li><a href="about.html">ABOUT US</a></li>
 							<li><a href="single-list.html">Pages</a></li>
 							<li><a href="blog.html">Blog</a></li>
