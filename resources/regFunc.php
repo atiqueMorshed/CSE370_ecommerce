@@ -83,7 +83,6 @@
     } catch (PDOException $ex) {
 
     }
-
   }
 
   // function set($u) {

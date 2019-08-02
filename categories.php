@@ -1,6 +1,18 @@
+<?php
+include_once 'common/header.php';
+require_once 'functions.php';
+//DB connection
+$username = "root";
+$password = "";
+$dbName = "house_buy";
+$server = "localhost";
+$conn = mysqli_connect($server, $username, $password, $dbName);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 	<title>LERAMIZ - Landing Page Template</title>
 	<meta charset="UTF-8">
 	<meta name="description" content="LERAMIZ Landing Page Template">
@@ -18,74 +30,8 @@
 	<link rel="stylesheet" href="css/animate.css"/>
 	<link rel="stylesheet" href="css/owl.carousel.css"/>
 	<link rel="stylesheet" href="css/style.css"/>
-
-
-	<!--[if lt IE 9]>
-	  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-	<![endif]-->
-
 </head>
 <body>
-	<!-- Page Preloder -->
-	<div id="preloder">
-		<div class="loader"></div>
-	</div>
-
-	<!-- Header section -->
-	<header class="header-section">
-		<div class="header-top">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-6 header-top-left">
-						<div class="top-info">
-							<i class="fa fa-phone"></i>
-							(+88) 666 121 4321
-						</div>
-						<div class="top-info">
-							<i class="fa fa-envelope"></i>
-							info.leramiz@colorlib.com
-						</div>
-					</div>
-					<div class="col-lg-6 text-lg-right header-top-right">
-						<div class="top-social">
-							<a href=""><i class="fa fa-facebook"></i></a>
-							<a href=""><i class="fa fa-twitter"></i></a>
-							<a href=""><i class="fa fa-instagram"></i></a>
-							<a href=""><i class="fa fa-pinterest"></i></a>
-							<a href=""><i class="fa fa-linkedin"></i></a>
-						</div>
-						<div class="user-panel">
-							<a href="registration.php"><i class="fa fa-user-circle-o"></i> Register</a>
-							<a href="login.php"><i class="fa fa-sign-in"></i> Login</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="container">
-			<div class="row">
-				<div class="col-12">
-					<div class="site-navbar">
-						<a href="#" class="site-logo"><img src="img/logo.png" alt=""></a>
-						<div class="nav-switch">
-							<i class="fa fa-bars"></i>
-						</div>
-						<ul class="main-menu">
-							<li><a href="index.php">Home</a></li>
-							<li><a href="categories.php">FEATURED LISTING</a></li>
-							<li><a href="about.php">ABOUT US</a></li>
-							<li><a href="single-list.php">Pages</a></li>
-							<li><a href="sellHouse.php">Sell Property</a></li>
-							<li><a href="contact.php">Contact</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</header>
-	<!-- Header section end -->
-
 
 	<!-- Page top section -->
 	<section class="page-top-section set-bg" data-setbg="img/page-top-bg.jpg">
@@ -104,443 +50,80 @@
 	</div>
 
 
-	<!-- page -->
-	<section class="page-section categories-page">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-4 col-md-6">
-					<!-- feature -->
-					<div class="feature-item">
-						<div class="feature-pic set-bg" data-setbg="img/feature/1.jpg">
-							<div class="sale-notic">FOR SALE</div>
-						</div>
-						<div class="feature-text">
-							<div class="text-center feature-title">
-								<h5>1963 S Crescent Heights Blvd</h5>
-								<p><i class="fa fa-map-marker"></i> Los Angeles, CA 90034</p>
-							</div>
-							<div class="room-info-warp">
-								<div class="room-info">
-									<div class="rf-left">
-										<p><i class="fa fa-th-large"></i> 800 Square foot</p>
-										<p><i class="fa fa-bed"></i> 10 Bedrooms</p>
-									</div>
-									<div class="rf-right">
-										<p><i class="fa fa-car"></i> 2 Garages</p>
-										<p><i class="fa fa-bath"></i> 6 Bathrooms</p>
-									</div>
-								</div>
-								<div class="room-info">
-									<div class="rf-left">
-										<p><i class="fa fa-user"></i> Tony Holland</p>
-									</div>
-									<div class="rf-right">
-										<p><i class="fa fa-clock-o"></i> 1 days ago</p>
-									</div>
-								</div>
-							</div>
-							<a href="#" class="room-price">$1,200,000</a>
-						</div>
+<!-- Search bar -->
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-7 pb-5">
+			<form action="categories.php" method="GET" id="srchForm">
+				<div class="input-group p-5">
+					<input type="text" class="form-control" placeholder="Location or Property Name" name="q" maxlength="20">
+					<div class="input-group-btn">
+						<button class="btn btn-secondary bg-primary" id="srch" type="submit" name="submit">
+							<b class="glyphicon glyphicon-search">Find Property</b>
+						</button>
 					</div>
 				</div>
-				<div class="col-lg-4 col-md-6">
-					<!-- feature -->
-					<div class="feature-item">
-						<div class="feature-pic set-bg" data-setbg="img/feature/2.jpg">
-							<div class="sale-notic">FOR SALE</div>
-						</div>
-						<div class="feature-text">
-							<div class="text-center feature-title">
-								<h5>305 North Palm Drive</h5>
-								<p><i class="fa fa-map-marker"></i> Beverly Hills, CA 90210</p>
-							</div>
-							<div class="room-info-warp">
-								<div class="room-info">
-									<div class="rf-left">
-										<p><i class="fa fa-th-large"></i> 1500 Square foot</p>
-										<p><i class="fa fa-bed"></i> 16 Bedrooms</p>
-									</div>
-									<div class="rf-right">
-										<p><i class="fa fa-car"></i> 2 Garages</p>
-										<p><i class="fa fa-bath"></i> 8 Bathrooms</p>
-									</div>
-								</div>
-								<div class="room-info">
-									<div class="rf-left">
-										<p><i class="fa fa-user"></i> Gina Wesley</p>
-									</div>
-									<div class="rf-right">
-										<p><i class="fa fa-clock-o"></i> 1 days ago</p>
-									</div>
-								</div>
-							</div>
-							<a href="#" class="room-price">$4,500,000</a>
-						</div>
-					</div>
+			</form>
+	</div>
+<!-- Search bar End -->
+
+<!-- Sort bar -->
+	<div class="col-sm-4 pb-5">
+		<div class="form-group p-5">
+				<select class="form-control bg-secondary text-white">
+					<option disabled selected>Sort By</option>
+					<option> <button name="price_asc" > Price (Low to High) </button> </option>
+					<option> <button name="price_desc" > Price (High to Low) </button> </option>
+					<option> <button name="name_asc"> Name (Ascending) </button> </option>
+					<option> <button name="name_desc"> Name (Descending) </button> </option>
+					<option> <button name="asc"> Size (Ascending) </button> </option>
+					<option> <button name="asc"> Size (Descdending) </button> </option>
+				</select>
 				</div>
-				<div class="col-lg-4 col-md-6">
-					<!-- feature -->
-					<div class="feature-item">
-						<div class="feature-pic set-bg" data-setbg="img/feature/3.jpg">
-							<div class="rent-notic">FOR Rent</div>
-						</div>
-						<div class="feature-text">
-							<div class="text-center feature-title">
-								<h5>305 North Palm Drive</h5>
-								<p><i class="fa fa-map-marker"></i> Beverly Hills, CA 90210</p>
-							</div>
-							<div class="room-info-warp">
-								<div class="room-info">
-									<div class="rf-left">
-										<p><i class="fa fa-th-large"></i> 1500 Square foot</p>
-										<p><i class="fa fa-bed"></i> 16 Bedrooms</p>
-									</div>
-									<div class="rf-right">
-										<p><i class="fa fa-car"></i> 2 Garages</p>
-										<p><i class="fa fa-bath"></i> 8 Bathrooms</p>
-									</div>
-								</div>
-								<div class="room-info">
-									<div class="rf-left">
-										<p><i class="fa fa-user"></i> Gina Wesley</p>
-									</div>
-									<div class="rf-right">
-										<p><i class="fa fa-clock-o"></i> 1 days ago</p>
-									</div>
-								</div>
-							</div>
-							<a href="#" class="room-price">$2,500/month</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<!-- feature -->
-					<div class="feature-item">
-						<div class="feature-pic set-bg" data-setbg="img/feature/4.jpg">
-							<div class="sale-notic">FOR SALE</div>
-						</div>
-						<div class="feature-text">
-							<div class="text-center feature-title">
-								<h5>28 Quaker Ridge Road, Manhasset</h5>
-								<p><i class="fa fa-map-marker"></i> 28 Quaker Ridge Road, Manhasset</p>
-							</div>
-							<div class="room-info-warp">
-								<div class="room-info">
-									<div class="rf-left">
-										<p><i class="fa fa-th-large"></i> 1200 Square foot</p>
-										<p><i class="fa fa-bed"></i> 12 Bedrooms</p>
-									</div>
-									<div class="rf-right">
-										<p><i class="fa fa-car"></i> 3 Garages</p>
-										<p><i class="fa fa-bath"></i> 8 Bathrooms</p>
-									</div>
-								</div>
-								<div class="room-info">
-									<div class="rf-left">
-										<p><i class="fa fa-user"></i> Sasha Gordon </p>
-									</div>
-									<div class="rf-right">
-										<p><i class="fa fa-clock-o"></i> 8 days ago</p>
-									</div>
-								</div>
-							</div>
-							<a href="#" class="room-price">$5,600,000</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<!-- feature -->
-					<div class="feature-item">
-						<div class="feature-pic set-bg" data-setbg="img/feature/5.jpg">
-							<div class="rent-notic">FOR Rent</div>
-						</div>
-						<div class="feature-text">
-							<div class="text-center feature-title">
-								<h5>Sofi Berryessa 750 N King Road</h5>
-								<p><i class="fa fa-map-marker"></i> San Jose, CA 95133</p>
-							</div>
-							<div class="room-info-warp">
-								<div class="room-info">
-									<div class="rf-left">
-										<p><i class="fa fa-th-large"></i> 500 Square foot</p>
-										<p><i class="fa fa-bed"></i> 4 Bedrooms</p>
-									</div>
-									<div class="rf-right">
-										<p><i class="fa fa-car"></i> 1 Garages</p>
-										<p><i class="fa fa-bath"></i> 2 Bathrooms</p>
-									</div>
-								</div>
-								<div class="room-info">
-									<div class="rf-left">
-										<p><i class="fa fa-user"></i> Gina Wesley</p>
-									</div>
-									<div class="rf-right">
-										<p><i class="fa fa-clock-o"></i> 8 days ago</p>
-									</div>
-								</div>
-							</div>
-							<a href="#" class="room-price">$1,600/month</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<!-- feature -->
-					<div class="feature-item">
-						<div class="feature-pic set-bg" data-setbg="img/feature/6.jpg">
-							<div class="sale-notic">FOR SALE</div>
-						</div>
-						<div class="feature-text">
-							<div class="text-center feature-title">
-								<h5>1203 Orren Street, Northeast</h5>
-								<p><i class="fa fa-map-marker"></i> Washington, DC 20002</p>
-							</div>
-							<div class="room-info-warp">
-								<div class="room-info">
-									<div class="rf-left">
-										<p><i class="fa fa-th-large"></i> 700 Square foot</p>
-										<p><i class="fa fa-bed"></i> 7 Bedrooms</p>
-									</div>
-									<div class="rf-right">
-										<p><i class="fa fa-car"></i> 1 Garages</p>
-										<p><i class="fa fa-bath"></i> 7 Bathrooms</p>
-									</div>
-								</div>
-								<div class="room-info">
-									<div class="rf-left">
-										<p><i class="fa fa-user"></i> Sasha Gordon </p>
-									</div>
-									<div class="rf-right">
-										<p><i class="fa fa-clock-o"></i> 8 days ago</p>
-									</div>
-								</div>
-							</div>
-							<a href="#" class="room-price">$1,600,000</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<!-- feature -->
-					<div class="feature-item">
-						<div class="feature-pic set-bg" data-setbg="img/feature/7.jpg">
-							<div class="sale-notic">FOR SALE</div>
-						</div>
-						<div class="feature-text">
-							<div class="text-center feature-title">
-								<h5>1476 Harvard St NW Unit Ph</h5>
-								<p><i class="fa fa-map-marker"></i> Washington, DC 20009</p>
-							</div>
-							<div class="room-info-warp">
-								<div class="room-info">
-									<div class="rf-left">
-										<p><i class="fa fa-th-large"></i> 550 Square foot</p>
-										<p><i class="fa fa-bed"></i> 7 Bedrooms</p>
-									</div>
-									<div class="rf-right">
-										<p><i class="fa fa-car"></i> 1 Garages</p>
-										<p><i class="fa fa-bath"></i> 3 Bathrooms</p>
-									</div>
-								</div>
-								<div class="room-info">
-									<div class="rf-left">
-										<p><i class="fa fa-user"></i> Adam Johnson</p>
-									</div>
-									<div class="rf-right">
-										<p><i class="fa fa-clock-o"></i> 1 days ago</p>
-									</div>
-								</div>
-							</div>
-							<a href="#" class="room-price">$1,250,000</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<!-- feature -->
-					<div class="feature-item">
-						<div class="feature-pic set-bg" data-setbg="img/feature/8.jpg">
-							<div class="sale-notic">FOR SALE</div>
-						</div>
-						<div class="feature-text">
-							<div class="text-center feature-title">
-								<h5>9633 Weathered Oak Ct</h5>
-								<p><i class="fa fa-map-marker"></i> Bethesda, MD 208179</p>
-							</div>
-							<div class="room-info-warp">
-								<div class="room-info">
-									<div class="rf-left">
-										<p><i class="fa fa-th-large"></i> 1000 Square foot</p>
-										<p><i class="fa fa-bed"></i> 6 Bedrooms</p>
-									</div>
-									<div class="rf-right">
-										<p><i class="fa fa-car"></i> 2 Garages</p>
-										<p><i class="fa fa-bath"></i> 8 Bathrooms</p>
-									</div>
-								</div>
-								<div class="room-info">
-									<div class="rf-left">
-										<p><i class="fa fa-user"></i> Ann Hathaway</p>
-									</div>
-									<div class="rf-right">
-										<p><i class="fa fa-clock-o"></i> 1 days ago</p>
-									</div>
-								</div>
-							</div>
-							<a href="#" class="room-price">$1,230,000</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<!-- feature -->
-					<div class="feature-item">
-						<div class="feature-pic set-bg" data-setbg="img/feature/9.jpg">
-							<div class="rent-notic">FOR Rent</div>
-						</div>
-						<div class="feature-text">
-							<div class="text-center feature-title">
-								<h5>2529 Marsh Hill Henry Rd Unit Mc</h5>
-								<p><i class="fa fa-map-marker"></i> McHenry, MD 21541</p>
-							</div>
-							<div class="room-info-warp">
-								<div class="room-info">
-									<div class="rf-left">
-										<p><i class="fa fa-th-large"></i> 550 Square foot</p>
-										<p><i class="fa fa-bed"></i> 4 Bedrooms</p>
-									</div>
-									<div class="rf-right">
-										<p><i class="fa fa-car"></i> 1 Garages</p>
-										<p><i class="fa fa-bath"></i> 2 Bathrooms</p>
-									</div>
-								</div>
-								<div class="room-info">
-									<div class="rf-left">
-										<p><i class="fa fa-user"></i>  McHenry, MD 21541</p>
-									</div>
-									<div class="rf-right">
-										<p><i class="fa fa-clock-o"></i> 1 days ago</p>
-									</div>
-								</div>
-							</div>
-							<a href="#" class="room-price">$1,000/month</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<!-- feature -->
-					<div class="feature-item">
-						<div class="feature-pic set-bg" data-setbg="img/feature/10.jpg">
-							<div class="sale-notic">FOR SALE</div>
-						</div>
-						<div class="feature-text">
-							<div class="text-center feature-title">
-								<h5>6335 N Magnolia Ave Apt 1S</h5>
-								<p><i class="fa fa-map-marker"></i> Chicago, IL 60660</p>
-							</div>
-							<div class="room-info-warp">
-								<div class="room-info">
-									<div class="rf-left">
-										<p><i class="fa fa-th-large"></i> 2200 Square foot</p>
-										<p><i class="fa fa-bed"></i> 16 Bedrooms</p>
-									</div>
-									<div class="rf-right">
-										<p><i class="fa fa-car"></i> 3 Garages</p>
-										<p><i class="fa fa-bath"></i> 10 Bathrooms</p>
-									</div>
-								</div>
-								<div class="room-info">
-									<div class="rf-left">
-										<p><i class="fa fa-user"></i> Tony Holland </p>
-									</div>
-									<div class="rf-right">
-										<p><i class="fa fa-clock-o"></i> 8 days ago</p>
-									</div>
-								</div>
-							</div>
-							<a href="#" class="room-price">$1,600,000</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<!-- feature -->
-					<div class="feature-item">
-						<div class="feature-pic set-bg" data-setbg="img/feature/11.jpg">
-							<div class="rent-notic">FOR Rent</div>
-						</div>
-						<div class="feature-text">
-							<div class="text-center feature-title">
-								<h5>441 E Maywood Ct</h5>
-								<p><i class="fa fa-map-marker"></i> Decatur, IL 62526</p>
-							</div>
-							<div class="room-info-warp">
-								<div class="room-info">
-									<div class="rf-left">
-										<p><i class="fa fa-th-large"></i>   750 Square foot</p>
-										<p><i class="fa fa-bed"></i> 5 Bedrooms</p>
-									</div>
-									<div class="rf-right">
-										<p><i class="fa fa-car"></i> 1 Garages</p>
-										<p><i class="fa fa-bath"></i> 3 Bathrooms</p>
-									</div>
-								</div>
-								<div class="room-info">
-									<div class="rf-left">
-										<p><i class="fa fa-user"></i> Chris Brown</p>
-									</div>
-									<div class="rf-right">
-										<p><i class="fa fa-clock-o"></i> 8 days ago</p>
-									</div>
-								</div>
-							</div>
-							<a href="#" class="room-price">$1,800/month</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<!-- feature -->
-					<div class="feature-item">
-						<div class="feature-pic set-bg" data-setbg="img/feature/12.jpg">
-							<div class="sale-notic">FOR SALE</div>
-						</div>
-						<div class="feature-text">
-							<div class="text-center feature-title">
-								<h5>712 Southland Circle Dr</h5>
-								<p><i class="fa fa-map-marker"></i> Tuscola, IL 61953</p>
-							</div>
-							<div class="room-info-warp">
-								<div class="room-info">
-									<div class="rf-left">
-										<p><i class="fa fa-th-large"></i>   200 Square foot</p>
-										<p><i class="fa fa-bed"></i> 2 Bedrooms</p>
-									</div>
-									<div class="rf-right">
-										<p><i class="fa fa-car"></i> 1 Garages</p>
-										<p><i class="fa fa-bath"></i> 2 Bathrooms</p>
-									</div>
-								</div>
-								<div class="room-info">
-									<div class="rf-left">
-										<p><i class="fa fa-user"></i>  Gina Wesley</p>
-									</div>
-									<div class="rf-right">
-										<p><i class="fa fa-clock-o"></i> 8 days ago</p>
-									</div>
-								</div>
-							</div>
-							<a href="#" class="room-price">$235,000</a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="site-pagination">
-				<span>1</span>
-				<a href="#">2</a>
-				<a href="#">3</a>
-				<a href="#"><i class="fa fa-angle-right"></i></a>
 			</div>
 		</div>
-	</section>
-	<!-- page end -->
+	</div>
+<!-- Sort bar End -->
 
+<div class="container-fluid">
 
-	<!-- Clients section -->
+<!-- Filter Panel -->
+	<div class="row">
+		<div class="col-sm-2">
+			<div class="pl-3">
+							<div class="border border-warning p-3">
+								<button type="button" class="btn btn-success btn-block" data-toggle="" data-target="#FilterDropDown"><strong>Filter</strong></button>
+									<div id="FilterDropDown" class="">
+										<p>Lorem ipsum dolor sit amet consectetur
+										adipisicing elit. Velit accusamus
+										necessitatibus architecto. Veniam, sapiente.
+										Quisquam porro modi accusantium error sint?
+										Ut laborum omnis corrupti dicta voluptas excepturi.
+										Accusantium, asperiores vel?</p>
+										</div>
+									</div>
+				</div>
+	</div>
+<!-- Filter Panel End -->
+
+<!-- All Products -->
+
+	<div class="col-lg-8 pl-5 pb-5">
+
+	<?php
+	if (isset($_GET['submit'])) {
+		srch_rslt();
+ }	else {
+	 all_prod();
+ }
+	?>
+	</div>
+
+	</div>
+	</div>
+<!-- All Products End -->
+
+<!-- Clients section -->
 	<div class="clients-section">
 		<div class="container">
 			<div class="clients-slider owl-carousel">
@@ -562,85 +145,16 @@
 			</div>
 		</div>
 	</div>
-	<!-- Clients section end -->
+<!-- Clients section end -->
 
 
-	<!-- Footer section -->
-	<footer class="footer-section set-bg" data-setbg="img/footer-bg.jpg">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-3 col-md-6 footer-widget">
-					<img src="img/logo.png" alt="">
-					<p>Lorem ipsum dolo sit azmet, consecter dipise consult  elit. Maecenas mamus antesme non anean a dolor sample tempor nuncest erat.</p>
-					<div class="social">
-						<a href="#"><i class="fa fa-facebook"></i></a>
-						<a href="#"><i class="fa fa-twitter"></i></a>
-						<a href="#"><i class="fa fa-instagram"></i></a>
-						<a href="#"><i class="fa fa-pinterest"></i></a>
-						<a href="#"><i class="fa fa-linkedin"></i></a>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6 footer-widget">
-					<div class="contact-widget">
-						<h5 class="fw-title">CONTACT US</h5>
-						<p><i class="fa fa-map-marker"></i>3711-2880 Nulla St, Mankato, Mississippi </p>
-						<p><i class="fa fa-phone"></i>(+88) 666 121 4321</p>
-						<p><i class="fa fa-envelope"></i>info.leramiz@colorlib.com</p>
-						<p><i class="fa fa-clock-o"></i>Mon - Sat, 08 AM - 06 PM</p>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6 footer-widget">
-					<div class="double-menu-widget">
-						<h5 class="fw-title">POPULAR PLACES</h5>
-						<ul>
-							<li><a href="">Florida</a></li>
-							<li><a href="">New York</a></li>
-							<li><a href="">Washington</a></li>
-							<li><a href="">Los Angeles</a></li>
-							<li><a href="">Chicago</a></li>
-						</ul>
-						<ul>
-							<li><a href="">St Louis</a></li>
-							<li><a href="">Jacksonville</a></li>
-							<li><a href="">San Jose</a></li>
-							<li><a href="">San Diego</a></li>
-							<li><a href="">Houston</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6  footer-widget">
-					<div class="newslatter-widget">
-						<h5 class="fw-title">NEWSLETTER</h5>
-						<p>Subscribe your email to get the latest news and new offer also discount</p>
-						<form class="footer-newslatter-form">
-							<input type="text" placeholder="Email address">
-							<button><i class="fa fa-send"></i></button>
-						</form>
-					</div>
-				</div>
-			</div>
-			<div class="footer-bottom">
-				<div class="footer-nav">
-					<ul>
-						<li><a href="">Home</a></li>
-						<li><a href="">Featured Listing</a></li>
-						<li><a href="">About us</a></li>
-						<li><a href="">Pages</a></li>
-						<li><a href="">Blog</a></li>
-						<li><a href="">Contact</a></li>
-					</ul>
-				</div>
-				<div class="copyright">
-					<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-				</div>
-			</div>
-		</div>
-	</footer>
-	<!-- Footer section end -->
+<!-- Footer section -->
+	<?php
+	include_once 'common/footer.php';
+	?>
+<!-- Footer section end-->
 
-	<!--====== Javascripts & Jquery ======-->
+<!--====== Javascripts & Jquery ======-->
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/owl.carousel.min.js"></script>
