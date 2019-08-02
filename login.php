@@ -8,13 +8,16 @@
 		$required_fields=array('username', 'password');
 		$form_errors = array_merge($form_errors, check_empty_fields($required_fields));
 		if(empty($form_errors)) {
+			// $ux = $_POST['username'];
 			$user = $_POST['username'];
 			$password = $_POST['password'];
 
 			$sqlQuery = "SELECT* FROM user WHERE username = :username";
 			$statement = $db->prepare($sqlQuery);
 			$statement->execute(array(':username' => $user));
-
+			if($statement->rowCount() < 1){
+				$result = flashMessage("Username does not exist.");
+			}
 			while($row = $statement->fetch()) {
 				$user =  $row['USERNAME'];
 				$hashed_password = $row['Password'];
@@ -73,7 +76,6 @@
 		<div class="loader"></div>
 	</div>
 
-
   <!-- Login Section -->
 	<div class="container-fluid h-100">
     <div class="row justify-content-center align-items-center h-100">
@@ -94,11 +96,6 @@
                 <div class="form-group">
                     <input class="form-control form-control-lg" placeholder="Password" type="password" name="password">
                 </div>
-								<div class="checkbox">
-									<label>
-										<input name="remember" type="checkbox"> Remember me
-									</label>
-								</div>
 
                 <div class="form-group">
                     <button class="btn-lg btn-block site-btn" name="loginbtn">Sign In</button>

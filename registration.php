@@ -5,9 +5,9 @@
 
   if (isset($_POST['registerbtn'])) {
     $form_errors = array();
-    $required_fields = array('username','name','email','password','address','phone');
+    $required_fields = array('username','name','email','password','address');
     $form_errors = array_merge($form_errors, check_empty_fields($required_fields));
-    $fields_to_check_length = array('username'=>6, 'password'=> 6, 'phone' => 11);
+    $fields_to_check_length = array('username'=>6, 'password'=> 6);
     $form_errors =  array_merge($form_errors, check_min_length($fields_to_check_length));
     $form_errors = array_merge($form_errors, check_email($_POST));
 
@@ -16,7 +16,6 @@
     $email = $_POST['email'];
     $password = $_POST['password'];
     $address = $_POST['address'];
-    $phone = $_POST['phone'];
 
     if(checkDuplicateEntries("user", "USERNAME", $username, $db)) {
       $result = flashMessage("Username is already taken.");
@@ -28,11 +27,11 @@
     else if (empty($form_errors)) {
       $hashed_password = password_hash($password, PASSWORD_DEFAULT);
       try {
-        $sqlInsert = "INSERT INTO user(username, password, email, name, address, phone)
-        VALUES(:username, :password, :email, :name, :address, :phone)";
+        $sqlInsert = "INSERT INTO user(username, password, email, name, address)
+        VALUES(:username, :password, :email, :name, :address)";
 
         $statement = $db->prepare($sqlInsert);
-        $statement->execute(array(':username'=>$username,':name'=>$name,':email'=>$email,':password'=> $hashed_password,':address'=>$address,':phone'=>$phone));
+        $statement->execute(array(':username'=>$username,':name'=>$name,':email'=>$email,':password'=> $hashed_password,':address'=>$address));
         if($statement->rowCount() == 1) {
           $result = flashMessage("Registration Successful", "Pass");
         }
@@ -110,9 +109,6 @@
               </div>
               <div class="form-group">
                   <input class="form-control form-control-lg" placeholder="Password" type="password" name="password">
-              </div>
-              <div class="form-group">
-                <input type="phone" class="form-control form-control-lg" id="phone" placeholder="(+880)-" name="phone">
               </div>
               <div class="form-group">
                 <input type="text" class="form-control form-control-lg" id="address" placeholder="Address" name="address">
