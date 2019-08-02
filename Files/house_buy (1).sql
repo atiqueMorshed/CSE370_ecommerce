@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jul 12, 2019 at 03:26 PM
+-- Generation Time: Jul 21, 2019 at 10:15 PM
 -- Server version: 5.7.26
 -- PHP Version: 7.2.18
 
@@ -33,6 +33,7 @@ CREATE TABLE IF NOT EXISTS `admin` (
   `ADMIN_ID` varchar(10) NOT NULL,
   `EMP_ID` varchar(10) NOT NULL,
   PRIMARY KEY (`ADMIN_ID`),
+  UNIQUE KEY `EMP_ID_2` (`EMP_ID`),
   KEY `EMP_ID` (`EMP_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -47,6 +48,7 @@ CREATE TABLE IF NOT EXISTS `agent` (
   `AGENT_ID` varchar(10) NOT NULL,
   `EMP_ID` varchar(10) NOT NULL,
   PRIMARY KEY (`AGENT_ID`),
+  UNIQUE KEY `EMP_ID_2` (`EMP_ID`),
   KEY `EMP_ID` (`EMP_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -61,6 +63,7 @@ CREATE TABLE IF NOT EXISTS `apartment` (
   `APARTMENT_NO` int(11) NOT NULL,
   `PROPERTY_ID` varchar(10) NOT NULL,
   PRIMARY KEY (`APARTMENT_NO`),
+  UNIQUE KEY `PROPERTY_ID_2` (`PROPERTY_ID`),
   KEY `PROPERTY_ID` (`PROPERTY_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -112,7 +115,9 @@ CREATE TABLE IF NOT EXISTS `employee` (
   `Name` varchar(50) NOT NULL,
   `Address` varchar(200) NOT NULL,
   `PHONE` int(10) NOT NULL,
-  PRIMARY KEY (`EMP_ID`)
+  PRIMARY KEY (`EMP_ID`),
+  UNIQUE KEY `EMAIL` (`EMAIL`),
+  UNIQUE KEY `PHONE` (`PHONE`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -183,12 +188,26 @@ CREATE TABLE IF NOT EXISTS `property` (
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
   `USERNAME` varchar(10) NOT NULL,
+  `Password` varchar(255) NOT NULL,
   `EMAIL` varchar(50) NOT NULL,
   `Name` varchar(50) NOT NULL,
   `ADDRESS` varchar(200) NOT NULL,
   `PHONE` int(10) NOT NULL,
-  PRIMARY KEY (`USERNAME`)
+  PRIMARY KEY (`USERNAME`),
+  UNIQUE KEY `EMAIL` (`EMAIL`),
+  UNIQUE KEY `PHONE` (`PHONE`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`USERNAME`, `Password`, `EMAIL`, `Name`, `ADDRESS`, `PHONE`) VALUES
+('aaaaaa', '$2y$10$aediQi48CAjcxQ8QwvMWV.UX0G1hl6DVJ2KV2riWueHTnyZenZ17S', 'a@a.com', 'a', 'a', 1787451364),
+('dedadeda', '$2y$10$O5EOnQi/VYum8TJ4rKs1t.quy4mWODJOZivOsZLZ6wU.1bfLvjk8C', 'ddd@d.com', 'ddd', 'd', 1554725398),
+('Demo01', 'demo', 'demo@d.com', 'Demo Guy', 'DDD', 1768595206),
+('Demo02', '$2y$10$wIkjJ3iiOF6VsTdT6ikIcuMnMCriUbcAGSwMXG4QQ5pDTtedWYopu', 'demo@d2.com', 'Demo Guy', 'D', 2127121212),
+('Demo05', '$2y$10$ZunaDU1EFHL6shLZ/L6miOHkOeGZEVHWrYikmjdQCGQbx1nUMwcy6', 'demo@d5.com', 'Demo Guy', 'dd', 1784521365);
 
 -- --------------------------------------------------------
 
