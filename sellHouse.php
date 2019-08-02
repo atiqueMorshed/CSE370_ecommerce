@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
   include_once 'resources/session.php';
   include_once 'resources/Database.php';
   include_once 'resources/regFunc.php';
@@ -25,17 +25,17 @@
 			$statement = $db->prepare($sqlQuery);
 			$statement->execute(array(':username' => $username));
 
-			while($row = $statement->fetch()) {
-				$username =  $row['USERNAME'];
-				$hashed_password = $row['Password'];
+			while($row = $statement->fetchAll()) {
+				$username =  $row['username'];
+				$hashed_password = $row['password'];
 
 				if(password_verify($password, $hashed_password)){
-				//	$_SESSION['username'] = $user;
+				  $_SESSION['username'] = $username;
           try {
-            $sqlInsert = "INSERT INTO preproperty(PRE_ID, username, bedroom, washroom, balcony, size, street, city, state, Description) VALUES(:pid, :username, :bedroom, :washroom, :balcony, :size, :street, :city, :state, :description)";
-
+            //$sqlInsert = "INSERT INTO preproperty(PRE_ID, username, bedroom, washroom, balcony, size, street, city, state, Description) VALUES(:pid, :username, :bedroom, :washroom, :balcony, :size, :street, :city, :state, :description)";
+            $sqlInsert = "INSERT INTO `preproperty`(`PRE_ID`, `USERNAME`, `bedroom`, `washroom`, `balcony`, `size`, `street`, `city`, `state`, `Description`) VALUES (:pid, :username, :bedroom, :washroom, :balcony, :size, :street, :city, :state, :description)";
             $statement = $db->prepare($sqlInsert);
-            $statement->execute(array(':PRE_ID'=> $pid,':username'=>$username,':bedroom'=>$bedroom,':washroom'=>$washroom,':balcony'=> $balcony,':size'=>$size,':street'=>$street,':city'=>$city,':state'=>$state,':description'=>$description));
+            $statement->execute(array(':pid'=> $pid,':username'=>$username,':bedroom'=>$bedroom,':washroom'=>$washroom,':balcony'=> $balcony,':size'=>$size,':street'=>$street,':city'=>$city,':state'=>$state,':description'=>$description));
             if($statement->rowCount() == 1) {
               $result = flashMessage("Thank you!", "Pass");
             }
@@ -57,7 +57,7 @@
       }
 		}
 	}
-?>
+?> -->
 
 <!DOCTYPE html>
 <html lang="en">

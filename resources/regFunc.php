@@ -1,4 +1,5 @@
 <?php
+  $usern = aa;
   function check_empty_fields($required_fields_array) {
     $form_errors = array();
     foreach ($required_fields_array as $name_of_field) {
@@ -85,5 +86,11 @@
 
   }
 
+  function set($u) {
+    $usern = $u;
+  }
+  function get() {
+    return $usern;
+  }
 
 ?>
