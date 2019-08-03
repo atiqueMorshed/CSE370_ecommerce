@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Aug 03, 2019 at 08:50 AM
+-- Generation Time: Aug 03, 2019 at 08:41 AM
 -- Server version: 5.7.26
 -- PHP Version: 7.2.18
 
@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `house_buy`
 --
+CREATE DATABASE IF NOT EXISTS `house_buy` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `house_buy`;
 
 -- --------------------------------------------------------
 
@@ -102,13 +104,8 @@ CREATE TABLE IF NOT EXISTS `preproperty` (
   `size` int(11) NOT NULL,
   `street` varchar(200) NOT NULL,
   `city` varchar(50) NOT NULL,
-  `area` varchar(50) NOT NULL,
+  `state` varchar(50) NOT NULL,
   `Description` varchar(2000) NOT NULL,
-  `Image1` longblob,
-  `Image2` longblob,
-  `Image3` longblob,
-  `Image4` longblob,
-  `Image5` longblob,
   PRIMARY KEY (`PRE_ID`,`USERNAME`),
   KEY `USERNAME` (`USERNAME`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
@@ -117,10 +114,10 @@ CREATE TABLE IF NOT EXISTS `preproperty` (
 -- Dumping data for table `preproperty`
 --
 
-INSERT INTO `preproperty` (`PRE_ID`, `USERNAME`, `verify`, `bedroom`, `washroom`, `balcony`, `size`, `street`, `city`, `area`, `Description`, `Image1`, `Image2`, `Image3`, `Image4`, `Image5`) VALUES
-(4, 'ArrowX17', 0, 2, 2, 2, 1, 'wada', 'dd', 'dd', 'wdswadwdadw', NULL, NULL, NULL, NULL, NULL),
-(10, 'abudada', 0, 2, 3, 4, 1, 'dd', 'Dhaka', 'Dhaka', 'aaaa', NULL, NULL, NULL, NULL, NULL),
-(11, 'ArrowX17', 0, 1, 2, 3, 6, 'Sadat', 'Sadat', 'Sadat', 'Sadat', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `preproperty` (`PRE_ID`, `USERNAME`, `verify`, `bedroom`, `washroom`, `balcony`, `size`, `street`, `city`, `state`, `Description`) VALUES
+(4, 'ArrowX17', 0, 2, 2, 2, 1, 'wada', 'dd', 'dd', 'wdswadwdadw'),
+(10, 'abudada', 0, 2, 3, 4, 1, 'dd', 'Dhaka', 'Dhaka', 'aaaa'),
+(11, 'ArrowX17', 0, 1, 2, 3, 6, 'Sadat', 'Sadat', 'Sadat', 'Sadat');
 
 -- --------------------------------------------------------
 
@@ -141,13 +138,8 @@ CREATE TABLE IF NOT EXISTS `property` (
   `SIZE` int(11) NOT NULL,
   `street` varchar(200) NOT NULL,
   `city` varchar(20) NOT NULL,
-  `area` varchar(20) NOT NULL,
+  `state` varchar(20) NOT NULL,
   `Description` varchar(2000) NOT NULL,
-  `Image1` longblob,
-  `Image2` longblob,
-  `Image3` longblob,
-  `Image4` longblob,
-  `Image5` longblob,
   PRIMARY KEY (`PROPERTY_ID`),
   KEY `EMP_ID` (`EMP_ID`),
   KEY `USERNAME` (`USERNAME`)
