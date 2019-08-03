@@ -1,3 +1,5 @@
+
+
 <?php
   include_once 'resources/session.php';
   include_once 'resources/Database.php';
@@ -5,14 +7,14 @@
 
   if(isset($_POST['submit'])) {
 		$form_errors = array();
-		$required_fields=array('street', 'city', 'state', 'size', 'bedroom', 'washroom', 'balcony');
+		$required_fields=array('street', 'city', 'area', 'size', 'bedroom', 'washroom', 'balcony');
     $form_errors = array_merge($form_errors, check_empty_fields($required_fields));
 
     if(empty($form_errors)) {
       $username = $_SESSION['username'];
       $street = $_POST['street'];
       $city = $_POST['city'];
-      $state = $_POST['state'];
+      $area = $_POST['area'];
       $size = $_POST['size'];
       $bedroom = $_POST['bedroom'];
       $washroom = $_POST['washroom'];
@@ -27,9 +29,9 @@
 
       try {
         //$sqlInsert = "INSERT INTO preproperty(PRE_ID, username, bedroom, washroom, balcony, size, street, city, state, Description) VALUES(:pid, :username, :bedroom, :washroom, :balcony, :size, :street, :city, :state, :description)";
-        $sqlInsert = "INSERT INTO `preproperty`(`PRE_ID`, `USERNAME`, `verify`, `bedroom`, `washroom`, `balcony`, `size`, `street`, `city`, `state`, `Description`) VALUES (:pid, :username, :verify, :bedroom, :washroom, :balcony, :size, :street, :city, :state, :description)";
+        $sqlInsert = "INSERT INTO `preproperty`(`PRE_ID`, `USERNAME`, `verify`, `bedroom`, `washroom`, `balcony`, `size`, `street`, `city`, `area`, `Description`) VALUES (:pid, :username, :verify, :bedroom, :washroom, :balcony, :size, :street, :city, :area, :description)";
         $statement = $db->prepare($sqlInsert);
-        $statement->execute(array(':pid'=> $pid,':username'=>$username,':verify'=>$verify,':bedroom'=>$bedroom,':washroom'=>$washroom,':balcony'=> $balcony,':size'=>$size,':street'=>$street,':city'=>$city,':state'=>$state,':description'=>$description));
+        $statement->execute(array(':pid'=> $pid,':username'=>$username,':verify'=>$verify,':bedroom'=>$bedroom,':washroom'=>$washroom,':balcony'=> $balcony,':size'=>$size,':street'=>$street,':city'=>$city,':area'=>$area,':description'=>$description));
         if($statement->rowCount() == 1) {
           $result = flashMessage("Thank you!", "Pass");
         }
@@ -133,12 +135,21 @@ include_once 'common/header.php';
                   <input type="address" class="form-control form-control-lg" placeholder="Street Adress" name="street">
               </div>
 							<br>
+
               <div class="form-row">
                 <div class="form-group col-md-6">
-                  <input type="address" class="form-control form-control-lg" id="city" placeholder="City" name="city">
+                  <!-- <input type="address" class="form-control form-control-lg" id="city" placeholder="City" name="city"> -->
+                  <select name="city" id="city" class="form-control form-control-lg">
+                   <option value="">Select City</option>
+                  </select>
+                  <br />
+
                 </div>
                 <div class="form-group col-md-6">
-                  <input type="State" class="form-control form-control-lg" id="state" placeholder="State" name="state">
+                  <!-- <input type="area" class="form-control form-control-lg" id="area" placeholder="Area" name="area"> -->
+                  <select name="area" id="area" class="form-control form-control-lg">
+                   <option value="">Select Area</option>
+                  </select>
                 </div>
               </div>
 							<br>
@@ -197,3 +208,48 @@ include_once 'common/header.php';
     </table>
   </form> -->
   <!-- Login Section end -->
+  <script>
+  $(document).ready(function(){
+
+   load_json_data('city');
+
+   function load_json_data(id, parent_id)
+   {
+    var html_code = '';
+    $.getJSON('country_state_city.json', function(data){
+
+     html_code += '<option value="">Select '+id+'</option>';
+     $.each(data, function(key, value){
+      if(id == 'city')
+      {
+       if(value.parent_id == '0')
+       {
+        html_code += '<option value="'+value.id+'">'+value.name+'</option>';
+       }
+      }
+      else
+      {
+       if(value.parent_id == parent_id)
+       {
+        html_code += '<option value="'+value.id+'">'+value.name+'</option>';
+       }
+      }
+     });
+     $('#'+id).html(html_code);
+    });
+
+   }
+
+   $(document).on('change', '#city', function(){
+    var city_id = $(this).val();
+    if(city_id != '')
+    {
+     load_json_data('area', city_id);
+    }
+    else
+    {
+     $('#area').html('<option value="">Select Area</option>');
+    }
+   });
+  });
+  </script>
