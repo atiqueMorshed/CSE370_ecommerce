@@ -9,7 +9,6 @@ $dbName = "house_buy";
 $server = "localhost";
 $conn = mysqli_connect($server, $username, $password, $dbName);
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,7 +56,7 @@ $conn = mysqli_connect($server, $username, $password, $dbName);
 			<div class="col-lg-7 pb-5">
 			<form action="" method="GET" id="srchForm"> 
 				<div class="input-group p-5">
-					<input type="text" class="form-control" placeholder="Location or Property Name" name="q" maxlength="20">
+					<input type="text" class="form-control" placeholder="City or Property Name" name="q" maxlength="20">
 					<div class="input-group-btn">
 						<button class="btn btn-secondary bg-primary" id="srch" type="submit" name="submit">
 							<b class="glyphicon glyphicon-search">Find Property</b>
@@ -95,71 +94,6 @@ $conn = mysqli_connect($server, $username, $password, $dbName);
 
 <div class="container	">  
 
-<!-- Filter Panel --
-	<div class="row">
-		<div class="col-lg-2">
-			<div class="pl-3">
-				<div class="border border-warning p-3">
-					<h5 class="text-center">Filter</h5> <hr>
-
-					<h6 class="text-info">No of Bedrooms</h6> <br>
-					<ul class="list-group">
-						<?php 
-						$sql = "SELECT DISTINCT BEDROOM FROM property ORDER BY BEDROOM ASC";
-						$result = mysqli_query($conn, $sql);
-						while ($row = $result -> fetch_assoc()) {						
-						?>
-						<li class="list-group-item">
-							<div class="form-check">
-								<label class="form-check-label">
-									<input type="checkbox" name="form-check-input product-check" value="<?= $row['BEDROOM']; ?>" id="bedroom"> <?= $row['BEDROOM']; ?>
-								</label>
-							</div>
-						</li>
-						<?php } ?>
-					</ul>
-
-					<br>
-					<h6 class="text-info">No of Washrooms</h6> <br>
-					<ul class="list-group">
-						<?php 
-						$sql = "SELECT DISTINCT WASHROOM FROM property ORDER BY WASHROOM ASC";
-						$result = mysqli_query($conn, $sql);
-						while ($row = $result -> fetch_assoc()) {						
-						?>
-						<li class="list-group-item">
-							<div class="form-check">
-								<label class="form-check-label">
-									<input type="checkbox" name="form-check-input product-check" value="<?= $row['WASHROOM']; ?>" id="washroom"> <?= $row['WASHROOM']; ?>
-								</label>
-							</div>
-						</li>
-						<?php } ?>
-					</ul>
-
-					<br>
-					<h6 class="text-info">Location</h6> <br>
-					<ul class="list-group">
-						<?php 
-						$sql = "SELECT DISTINCT LOCATION FROM property ORDER BY LOCATION ASC";
-						$result = mysqli_query($conn, $sql);
-						while ($row = $result -> fetch_assoc()) {						
-						?>
-						<li class="list-group-item">
-							<div class="form-check">
-								<label class="form-check-label">
-									<input type="checkbox" name="form-check-input product-check" value="<?= $row['LOCATION']; ?>" id="washroom"> <?= $row['LOCATION']; ?>
-								</label>
-							</div>
-						</li>
-						<?php } ?>
-					</ul>
-
-				</div>
-			</div>
-	</div>
- Filter Panel End -->
-
 <!-- Search Page Body -->
 	
 	<div class="col-lg-12 pl-5 pb-5"> 
@@ -176,15 +110,8 @@ $conn = mysqli_connect($server, $username, $password, $dbName);
 	 //if ordering
 	  if (isset ($_GET["sort-submit"]))
 	 { 
-		 if ($_GET["sortBy"] == "Default") //for default value
-		  {
-			  srch_rslt($srch_key);
-			}
-	 else {
 		 sort_order();  //for custom value 
-	 }
-	}
-	
+	}	
 	?>
 	</div>
 	
