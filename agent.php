@@ -59,25 +59,36 @@
 if(isset($_SESSION['username']))
 {
 ?>
-  <section class="jumbotron text-center">
-			<div class="container">
+      <h2><?php echo "If this property is verified upload images and press accept, else press reject"?><h2/>
 			<?php
         $sql = $db->query('Select * FROM preproperty');
 	      if($db->query('select count(*) from preproperty')->fetchColumn()>0 ){
+
 		      while($row =$sql->fetch(PDO::FETCH_ASSOC)){
                if($row['verify']==0){
                  $id=$row['PRE_ID'];
                  ?>
-                 <section class="jumbotron text-center">
-                   <h2 class="jumbotron-heading"><?php echo "If this property is verified upload images and press accept, else press reject"?><h2/>
-                     <br>
-                     <p class="lead text-muted"><?php echo "{$row['USERNAME']} wants to add a property located at Street:{$row['street']}, City:{$row['city']}, Area:{$row['area']}" ?></p>
-                     <p class="lead text-muted"><?php echo "It has {$row['bedroom']} bedrooms, {$row['washroom']} washroom(s), {$row['balcony']} balcony(s). " ?></p>
-                     <p class="lead text-muted"><?php echo "Size is {$row['size']} acre(s)." ?></p>
-                     <p class="lead text-muted"><?php echo "Description is {$row['Description']}" ?></p>
-                     <a href="agentReject.php?id=<?php echo $row['PRE_ID'] ?>" class="btn btn-secondary my-2">Reject</a>
-                     <a href="agentForm.php?id=<?php echo $row['PRE_ID'] ?>" class="btn btn-secondary my-2">Edit Details</a>
+                 <!-- <div class="jumbotron">
+                  <h1 class="display-4">Hello, world!</h1>
+                  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+                  <hr class="my-4">
+                  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+                  <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+                </div> -->
+                 <section>
+                 <div class="container-fluid h-100">
+                   <div class="row justify-content-center align-items-center h-100">
+                         <br>
+                         <h4 class="lead text-muted"><?php echo "USERNAME: {$row['USERNAME']} | PRE PROPERTY ID: {$row['PRE_ID']} wants to add a property located at Street:{$row['street']}, City:{$row['city']}, Area:{$row['area']}" ?></h4>
+                         <p class="lead text-muted"><?php echo "It has {$row['bedroom']} bedrooms, {$row['washroom']} washroom(s), {$row['balcony']} balcony(s). " ?></p>
+                         <p class="lead text-muted"><?php echo "Size is {$row['size']} acre(s)." ?></p>
+                         <p class="lead text-muted"><?php echo "Description is {$row['Description']}" ?></p>
+                         <a href="agentReject.php?id=<?php echo $row['PRE_ID'] ?>" class="btn btn-secondary my-2">Reject</a>
+                         <a href="agentForm.php?id=<?php echo $row['PRE_ID'] ?>" class="btn btn-secondary my-2">Edit Details</a>
+                     </div>
+                   </div>
                  </section>
+                   <br>
                  <?php
                }
                else
