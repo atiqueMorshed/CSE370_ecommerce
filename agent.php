@@ -102,7 +102,7 @@
   <!-- Page top section -->
 	<section class="page-top-section set-bg" data-setbg="img/page-top-bg.jpg">
 		<div class="container text-white">
-			<h2>Product Verification.</h2>
+			<h2>Product Verification</h2>
 		</div>
 	</section>
 	<!--  Page top end -->
@@ -158,7 +158,7 @@
                     <div class="container-fluid h-100">
                       <div class="row justify-content-center align-items-center h-100">
                         <div class="col col-sm-6 col-md-6 col-lg-6 col-xl-6" style="background-color: #F7F7F7; padding:20px ; margin: 20px">
-                          <h2 class="jumborton-heading"> <?php echo " user {$row['USERNAME']}'s property is already verified by an agent" ?> </h2>
+                          <h2 class="jumborton-heading"> <?php echo " User {$row['USERNAME']}'s property is already verified by an agent" ?> </h2>
                        </div>
                      </div>
                    </div>
@@ -172,7 +172,13 @@
   }
   else{
   ?>
-  <h2 style="color:#30CAA0">You must be logged in to see this page.<a href="loginAdmin.php"> Login here.</a></h2>
+  <div class="container-fluid h-100">
+    <div class="row justify-content-center align-items-center h-50">
+      <div class="col col-sm-6 col-md-6 col-lg-6 col-xl-6">
+        <h2>You must be logged in to see this page.<a href="loginAdmin.php"> Login here.</a></h2>
+     </div>
+   </div>
+ </div>
   <?php
   }
   include_once 'common/footer.php';
