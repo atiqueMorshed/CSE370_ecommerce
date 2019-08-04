@@ -1,0 +1,52 @@
+[
+ {
+  "id":"Dhaka",
+  "name":"Dhaka",
+  "parent_id":"0"
+ },
+ {
+  "id":"Rangpur",
+  "name":"Rangpur",
+  "parent_id":"0"
+ },
+ {
+  "id":"Chittagong",
+  "name":"Chittagong",
+  "parent_id":"0"
+ },
+ {
+  "id":"Mohakhali",
+  "name":"Mohakhali",
+  "parent_id":"Dhaka"
+ },
+ {
+  "id":"Banani",
+  "name":"Banani",
+  "parent_id":"Dhaka"
+ },
+ {
+  "id":"Gulshan",
+  "name":"Gulshan",
+  "parent_id":"Dhaka"
+ },
+ {
+  "id":"Circuit House",
+  "name":"Circuit House",
+  "parent_id":"Rangpur"
+ },
+ {
+  "id":"DC Mor",
+  "name":"DC Mor",
+  "parent_id":"Rangpur"
+ },
+ {
+  "id":"Option01",
+  "name":"Option01",
+  "parent_id":"3"
+ },
+ {
+  "id":"Option02",
+  "name":"Option02",
+  "parent_id":"Chittagong"
+ }
+]
