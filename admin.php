@@ -60,7 +60,7 @@
 
 <?php
 }
-if(isset($_SESSION['username']))
+if(isset($_SESSION['emp_id']))
 {
 ?>
 

@@ -54,7 +54,9 @@ include_once 'common/header.php';
 		</div>
 	</section>
 	<!--  Page top end -->
-
+  <?php
+  echo $_SESSION["proid"];
+?>
             <?php if(isset($_SESSION['username'])): ?>
 
               <div class="form-group">

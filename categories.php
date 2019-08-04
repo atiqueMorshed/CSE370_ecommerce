@@ -8,6 +8,30 @@ $dbName = "house_buy";
 $server = "localhost";
 $conn = mysqli_connect($server, $username, $password, $dbName);
 ?>
+<!-- <?php
+		if (isset($_POST['buynow'])) {
+			// $PROPERTY_ID =  $_SESSION["proid"];
+			// echo $PROPERTY_ID;
+			// $username = $_SESSION["username"];
+			// echo $username;
+			// $_SESSION["DATE"] = date("Y/m/d");
+			// echo $ORDER_DATE;
+			// redirectTo(buyconfirm);
+		// try {
+		// 	$sqlInsert = "INSERT INTO `buy_order`(`ORDER_ID`, `PROPERTY_ID`, `USERNAME`, `ORDER_DATE`) VALUES (:xoid, :PROPERTY_ID, :username, :ORDER_DATE)";
+		// 	$statement = $db->prepare($sqlInsert);
+		// 	$statement->execute(array(':xoid'=>$xoid,':PROPERTY_ID'=>$PROPERTY_ID,':username'=>$username,':ORDER_DATE'=> $ORDER_DATE));
+		// 	if($statement->rowCount() == 1) {
+		// 		redirectTo(buyconfirm);
+		// 	}
+		// } catch (PDOException $ex) {
+		// 		$result = flashMessage("An error has occured: " .$ex->getMessage());
+		// }
+
+		}
+
+?> -->
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -173,20 +197,20 @@ $conn = mysqli_connect($server, $username, $password, $dbName);
 							</div>
 						</li>
 					<?php } ?>
-				</ul>			
+				</ul>
 			</div>
 	<!-- Filter Panel End -->
-
+		<h2><?echo $pid ?></h2>
 	<!-- All Products -->
 			<div class="col-lg-9">
-				<h5 class="text-center" id="textChange">All Properties</h5> <br> <br>	
+				<h5 class="text-center" id="textChange">All Properties</h5> <br> <br>
 
 				<div class="row" id="result">
-					<?php	
+					<?php
 					if (isset ($_GET["sort-submit"]))
 					{
-						sort_order1();  //for custom value 
-				   }				   
+						sort_order1();  //for custom value
+				   }
 				   else {
 					$sql = "SELECT * FROM  property";
 					$result = $conn -> query($sql);
@@ -194,10 +218,10 @@ $conn = mysqli_connect($server, $username, $password, $dbName);
 					?>
 
 					<div class="col-md-3 mb-2">
-						<div class="card-deck"> 
-							<div class="card border-secondary"> 
-							<a href="#">	
-								<img src="img/bg" class="card-img-top" alt="">							
+						<div class="card-deck">
+							<div class="card border-secondary">
+							<a href="#">
+								<img src="img/bg" class="card-img-top" alt="">
 								<div class="card-body">
 									<h5 class="card-title text-info text-center"><?= $row['PROPERTY_NAME'];?></h5>
 									<h6 class="card-title text-center"><?= $row['street'],', '. $row['area'],', '. $row['city']; ?></h6>
@@ -210,11 +234,16 @@ $conn = mysqli_connect($server, $username, $password, $dbName);
 											<h6 class="text-muted"><?= $row['BALCONY'];?> Balcony(s)</h6> <br>
 											<h6 class="text-muted"><?= $row['WASHROOM'];?> Washroom(s)</h6> <br>
 											</div>
-										</div> 
-								</div> 
+										</div>
+								</div>
 							</a>
+
 								<div class="card-footer">
-									<a href="#" class="btn btn-success btn-block"> <h6 class="text-light"><?= $row['PRICE'];?> tk</h6> </a>
+									<!-- <form method="post" action=""> -->
+									<!-- <button class="btn btn-success btn-block" type="submit" name="buynow" id="passvar"><?= $row['PRICE'];?> tk</button> -->
+									<a href="buyconfirm.php?id=<?php echo $row['PROPERTY_ID'] ?>" target="_blank" class="btn btn-success btn-block"><h6 class="text-light"><?= $row['PRICE'];?> tk</h6></a>
+									<!-- <a href="" class="btn btn-success btn-block" id="passvar" id="passvar"> <h6 class="text-light"><?= $row['PRICE'];?> tk</h6> </a> -->
+								<!-- </form> -->
 								</div>
 							</div>
 						</div>
@@ -237,34 +266,28 @@ $conn = mysqli_connect($server, $username, $password, $dbName);
 
 
 <script type="text/Javascript">
-		$(document).ready(function() {
-			$(".product_check").click(function(){
+        $(document).ready(function() {
+            $("#passvar").click(function(){
+							var action = 'data';
+							var pid = "<?php echo $pid ?>";
+							alert(pid);
+							var pname = "<?php echo $pname ?>";
+							var price = "<?php echo $price ?>";
+                $.ajax ({
+                        url : 'buyconfirm.php',
+                        method : 'POST',
+                        data : {action:action, pid:pid, pname:pname, price:price}
+                });
+            });
 
-				var action = 'data';
-				var city = get_filter_text('city');
-				var size = get_filter_text('size');
-				var bedroom = get_filter_text('bedroom');
-				var washroom = get_filter_text('washroom');
-				
-
-				$.ajax ({
-						url : 'action.php',
-						method : 'POST',
-						data : {action:action, city:city, size:size, bedroom:bedroom, washroom:washroom},
-						success : function(response) {
-							$("#result").html(response);
-						}
-					});
-			});
-
-		function get_filter_text(text_id) {
-			var filterData = [];
-			$('#'+text_id+':checked').each(function(){
-				filterData.push($(this).val());
-			});
-			return filterData;
-		}
-	});
+        function get_filter_text(text_id) {
+            var filterData = [];
+            $('#'+text_id+':checked').each(function(){
+                filterData.push($(this).val());
+            });
+            return filterData;
+        }
+    });
 </script>
 
 
@@ -276,7 +299,5 @@ $conn = mysqli_connect($server, $username, $password, $dbName);
 	<script src="js/magnific-popup.min.js"></script>
 	<script src="js/main.js"></script>
 	<script src="js/x.js"></script>
-
-
 </body>
 </html>

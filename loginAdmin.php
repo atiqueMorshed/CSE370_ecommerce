@@ -24,9 +24,11 @@
 				if($password === $hashed_password){
 					$_SESSION['username'] = $user;
 					if($type === "Admin") {
+						$_SESSION['emp_id']=$row['EMP_ID'];
 						redirectTo(admin);
 					}
 					else {
+						$_SESSION['Agent']=1;
 						redirectTo(agent);
 					}
 				}
