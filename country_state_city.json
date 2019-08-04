@@ -30,6 +30,16 @@
   "parent_id":"Dhaka"
  },
  {
+  "id":"Dhanmondi",
+  "name":"Dhanmondi",
+  "parent_id":"Dhaka"
+ },
+ {
+  "id":"Uttara",
+  "name":"Uttara",
+  "parent_id":"Dhaka"
+ },
+ {
   "id":"Circuit House",
   "name":"Circuit House",
   "parent_id":"Rangpur"
@@ -40,13 +50,28 @@
   "parent_id":"Rangpur"
  },
  {
-  "id":"Option01",
-  "name":"Option01",
-  "parent_id":"3"
+  "id":"RK ROAD",
+  "name":"RK ROAD",
+  "parent_id":"Rangpur"
  },
  {
-  "id":"Option02",
-  "name":"Option02",
+  "id":"CHECK POST",
+  "name":"CHECK POST",
+  "parent_id":"Rangpur"
+ },
+ {
+  "id":"Khulshi",
+  "name":"Khulshi",
+  "parent_id":"Chittagong"
+ },
+ {
+  "id":"Agrabad",
+  "name":"Agrabad",
+  "parent_id":"Chittagong"
+ },
+ {
+  "id":"Mehdibag",
+  "name":"Mehdibag",
   "parent_id":"Chittagong"
  }
 ]
