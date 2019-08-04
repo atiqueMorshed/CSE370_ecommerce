@@ -23,15 +23,12 @@
       $pid = 0;
       $description = $_POST['description'];
 
-			// $sqlQuery = "SELECT* FROM user WHERE username = :username";
-			// $statement = $db->prepare($sqlQuery);
-			// $statement->execute(array(':username' => $username));
-
       try {
-        //$sqlInsert = "INSERT INTO preproperty(PRE_ID, username, bedroom, washroom, balcony, size, street, city, state, Description) VALUES(:pid, :username, :bedroom, :washroom, :balcony, :size, :street, :city, :state, :description)";
-        $sqlInsert = "INSERT INTO `preproperty`(`PRE_ID`, `USERNAME`, `verify`, `bedroom`, `washroom`, `balcony`, `size`, `street`, `city`, `area`, `Description`) VALUES (:pid, :username, :verify, :bedroom, :washroom, :balcony, :size, :street, :city, :area, :description)";
+        $sqlInsert = "INSERT INTO `preproperty`(`PRE_ID`, `USERNAME`, `verify`, `bedroom`, `washroom`, `balcony`, `size`, `street`, `city`, `area`, `Description`)
+        VALUES (:pid, :username, :verify, :bedroom, :washroom, :balcony, :size, :street, :city, :area, :description)";
         $statement = $db->prepare($sqlInsert);
-        $statement->execute(array(':pid'=> $pid,':username'=>$username,':verify'=>$verify,':bedroom'=>$bedroom,':washroom'=>$washroom,':balcony'=> $balcony,':size'=>$size,':street'=>$street,':city'=>$city,':area'=>$area,':description'=>$description));
+        $statement->execute(array(':pid'=> $pid,':username'=>$username,':verify'=>$verify,':bedroom'=>$bedroom,':washroom'=>$washroom,':balcony'=> $balcony,':size'=>$size,':street'=>$street,
+        ':city'=>$city,':area'=>$area,':description'=>$description));
         if($statement->rowCount() == 1) {
           $result = flashMessage("Thank you!", "Pass");
         }

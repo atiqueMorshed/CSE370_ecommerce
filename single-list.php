@@ -136,7 +136,27 @@
 					<div class="single-list-content">
 						<div class="row">
 							<div class="col-xl-8 sl-title">
-								<h2>305 North Palm Drive</h2>
+								<h2>
+
+
+
+
+
+
+
+
+
+<?php>
+
+$id = $_GET['id'];
+   $stmt=$db->prepare("SELECT * from property WHERE PROPERTY_ID='?'");
+   $stmt->execute([$id]);
+   
+
+?>
+
+
+</h2>
 								<p><i class="fa fa-map-marker"></i>Beverly Hills, CA 90210</p>
 							</div>
 							<div class="col-xl-4">
@@ -397,10 +417,10 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			</div>
 		</div>
 	</footer>
-	<!-- Footer section end -->
+<!-- Footer section end -->
 
 
-	<!--====== Javascripts & Jquery ======-->
+<!--====== Javascripts & Jquery ======-->
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/owl.carousel.min.js"></script>

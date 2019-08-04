@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Aug 04, 2019 at 03:12 PM
+-- Generation Time: Aug 04, 2019 at 09:01 AM
 -- Server version: 5.7.26
 -- PHP Version: 7.2.18
 
@@ -106,7 +106,8 @@ CREATE TABLE IF NOT EXISTS `preproperty` (
 
 INSERT INTO `preproperty` (`PRE_ID`, `USERNAME`, `verify`, `bedroom`, `washroom`, `balcony`, `size`, `street`, `city`, `area`, `Description`, `Image1`, `Image2`, `Image3`, `Image4`, `Image5`, `floor1`, `floor2`, `floor3`, `floor4`, `floor5`) VALUES
 (4, 'ArrowX17', 1, 2, 2, 2, 1, 'wada', 'dd', 'dd', 'wdswadwdadw', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(10, 'abudada', 1, 2, 3, 4, 1, 'dd', 'Dhaka', 'Dhaka', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et omnis minima fugiat reprehenderit mollitia. Dicta, esse officiis voluptates perspiciatis saepe alias, natus blanditiis sequi dignissimos totam cupiditate fuga molestias optio magni ipsum pariatur dolorum. Sint quos aut sapiente animi possimus accusamus iure dolores eius nesciunt, iusto saepe, pariatur incidunt, ea.', '', '', '', '', '', '', '', '', '', ''),
+(10, 'abudada', 0, 2, 3, 4, 1, 'dd', 'Dhaka', 'Dhaka', 'aaaa', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(11, 'ArrowX17', 0, 1, 2, 3, 6, 'Sadat', 'Sadat', 'Sadat', 'Sadat', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (12, 'ArrowX17', 0, 2, 1, 1, 1, '338 Elephant Road, Dhaka', 'Rangpur', 'a', 'aaa', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (15, 'ArrowX17', 0, 2, 3, 4, 1, '11', 'Dhaka', 'Banani', 'aaaa', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
@@ -144,17 +145,7 @@ CREATE TABLE IF NOT EXISTS `property` (
   PRIMARY KEY (`PROPERTY_ID`),
   KEY `EMP_ID` (`EMP_ID`),
   KEY `USERNAME` (`USERNAME`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `property`
---
-
-INSERT INTO `property` (`PROPERTY_ID`, `EMP_ID`, `USERNAME`, `PROPERTY_NAME`, `PRICE`, `BEDROOM`, `WASHROOM`, `BALCONY`, `SIZE`, `street`, `city`, `area`, `Description`, `Image1`, `Image2`, `Image3`, `Image4`, `Image5`, `floor1`, `floor2`, `floor3`, `floor4`, `floor5`) VALUES
-(1, 10002, 'abudada', 'Demo House 1', 10000, 3, 2, 1, 1500, 'wireless street', 'Dhaka', 'Mohakhali', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Non quod sapiente mollitia assumenda iure officiis beatae, cupiditate esse quam maxime molestias expedita fugiat ut placeat dignissimos temporibus maiores. Perspiciatis, mollitia!', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(2, 10003, 'Rahimm', 'Demo House 2', 20000, 4, 3, 2, 2000, 'Chatteswary Street', 'Chittagong', 'Mehdibag', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(3, 10002, 'ArrowX17', 'Demo House 3', 30000, 5, 4, 2, 2500, '13/b', 'Dhaka', 'Banani', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(4, 10003, 'Rahimm', 'Demo House 4', 5000, 1, 1, 0, 600, 'Korail Bosti', 'Dhaka', 'Korail', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 

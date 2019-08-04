@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Aug 04, 2019 at 03:12 PM
+-- Generation Time: Aug 04, 2019 at 02:59 PM
 -- Server version: 5.7.26
 -- PHP Version: 7.2.18
 
@@ -106,7 +106,8 @@ CREATE TABLE IF NOT EXISTS `preproperty` (
 
 INSERT INTO `preproperty` (`PRE_ID`, `USERNAME`, `verify`, `bedroom`, `washroom`, `balcony`, `size`, `street`, `city`, `area`, `Description`, `Image1`, `Image2`, `Image3`, `Image4`, `Image5`, `floor1`, `floor2`, `floor3`, `floor4`, `floor5`) VALUES
 (4, 'ArrowX17', 1, 2, 2, 2, 1, 'wada', 'dd', 'dd', 'wdswadwdadw', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(10, 'abudada', 1, 2, 3, 4, 1, 'dd', 'Dhaka', 'Dhaka', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et omnis minima fugiat reprehenderit mollitia. Dicta, esse officiis voluptates perspiciatis saepe alias, natus blanditiis sequi dignissimos totam cupiditate fuga molestias optio magni ipsum pariatur dolorum. Sint quos aut sapiente animi possimus accusamus iure dolores eius nesciunt, iusto saepe, pariatur incidunt, ea.', '', '', '', '', '', '', '', '', '', ''),
+(10, 'abudada', 0, 2, 3, 4, 1, 'dd', 'Dhaka', 'Dhaka', 'aaaa', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(11, 'ArrowX17', 0, 1, 2, 3, 6, 'Sadat', 'Sadat', 'Sadat', 'Sadat', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (12, 'ArrowX17', 0, 2, 1, 1, 1, '338 Elephant Road, Dhaka', 'Rangpur', 'a', 'aaa', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (15, 'ArrowX17', 0, 2, 3, 4, 1, '11', 'Dhaka', 'Banani', 'aaaa', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
