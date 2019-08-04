@@ -10,6 +10,14 @@
     return $form_errors;
   }
 
+  function check_name($data) {
+    $form_errors= array();
+    if (!preg_match("/^[a-zA-Z ]*$/",$data)) {
+      $form_errors[]=$data . " is not a valid name.";
+    }
+    return $form_errors;
+  }
+
   function check_min_length($fields_to_check_length) {
     $form_errors = array();
     foreach ($fields_to_check_length as $name_of_field=> $minimum_length_required) {
