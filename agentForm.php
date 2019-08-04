@@ -40,9 +40,6 @@
      <div id="preloder">
        <div class="loader"></div>
      </div>
-     <?php
-     if(isset($_SESSION['username'])){
-     ?>
      <!-- Page Preloder -->
 
      <!-- Header section -->
@@ -112,7 +109,6 @@
      <!--  Page top end -->
 
  <?php
- }
  if(isset($_SESSION['username']))
  {
    $id = $_GET['id'];
@@ -256,20 +252,28 @@
            </div>
          </form>
          <br><br><br>
+         </div>
        </div>
      </div>
-   </div>
-<?php
-}
-else{
-?>
-<h2 style="color:#30CAA0">You must be logged in to see this page.<a href="loginAdmin.php"> Login here.</a></h2>
-<?php
-}
+    <?php
+  }
+  else{
+      ?>
+      <div class="container-fluid h-10">
+        <div class="row justify-content-center align-items-center h-100">
+            <div class="col col-sm-6 col-md-6 col-lg-4 col-xl-4">
+              <br><br><br><br>
+              <h2 style="color:#30CAA0">You must be logged in to see this page.<a href="loginAdmin.php"> Login here.</a></h2>
+              <br><br><br><br><br><br><br><br>
+            </div>
+          </div>
+        </div>
+      <?php
+  }
 
 
-include_once 'common/footer.php';
-?>
+  include_once 'common/footer.php';
+  ?>
 
 <script>
 $(document).ready(function(){
