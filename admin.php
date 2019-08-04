@@ -72,39 +72,27 @@ if(isset($_SESSION['username']))
   if($db->query('select count(*) from preproperty')->fetchColumn()>0 ){
     while($row =$sql->fetch(PDO::FETCH_ASSOC)){
       if($row['verify']==1){
-        if(isset($_POST['btn-add'])){
-          $_SESSION['price']=$_POST['price'];
-          $_SESSION['propertyname']=$_POST['propertyname'];
-          $_SESSION['id']=$row['PRE_ID'];
-          header("Location: accept.php");
-        }
-
-?>
-      <section class="jumbotron text-center">
-        <div class="" style="background-color:lavenderblush">
-           <h3 class="lead text-muted"><?php echo "{$row['USERNAME']} wants to add a property  at Street:{$row['street']}, City:{$row['city']}, Area:{$row['area']}" ?></h3>
-           <form method="post" action="" enctype="multipart/form-data">
-              <input type="propertyname" name="propertyname" placeholder="Enter property name.." class="form-control form-control-lg" >
-              <input type="number" name="price" placeholder="Enter price.." class="form-control form-control-lg" >
-              <button type="submit"  name="btn-add"> Add Products</button>
-           </form>
-           <?php
-
-           ?>
-          <br>
-        </div>
-      </section>
-<?php
-      }
+        ?>
+        <section class="jumbotron text-center">
+          <div class="container" style="background-color:plum">
+        <p class="lead text-muted"><?php echo "{$row['USERNAME']} wants to add a property located at Street:{$row['street']}, City:{$row['city']}, Area:{$row['area']}" ?></p>
+        <p class="lead text-muted"><?php echo "It has {$row['bedroom']} bedrooms, {$row['washroom']} washroom(s), {$row['balcony']} balcony(s). " ?></p>
+        <p class="lead text-muted"><?php echo "Size is {$row['size']} acre(s)." ?></p>
+        <p class="lead text-muted"><?php echo "Description is {$row['Description']}" ?></p>
+        <a href="adminForm.php?id=<?php echo $row['PRE_ID'] ?>" class="btn btn-secondary my-2">Add price and property name</a>
+      </div>
+  </section>
+        <?php
+    }
       else{
-?>
+        ?>
         <section class="jumbotron text-center">
             <div class="container" style="background-color:lavenderblush">
               <h2 class="jumborton-heading"> <?php echo " user {$row['USERNAME']} is awaiting agent verification" ?> </h2>
               <br>
             </div>
         </section>
-<?php
+        <?php
        }
       }
     }else{
