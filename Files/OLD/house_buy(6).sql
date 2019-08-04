@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Aug 04, 2019 at 09:01 AM
+-- Generation Time: Aug 03, 2019 at 08:50 AM
 -- Server version: 5.7.26
 -- PHP Version: 7.2.18
 
@@ -32,11 +32,13 @@ DROP TABLE IF EXISTS `buy_order`;
 CREATE TABLE IF NOT EXISTS `buy_order` (
   `ORDER_ID` varchar(10) NOT NULL,
   `PROPERTY_ID` int(11) NOT NULL,
+  `EMP_ID` int(11) NOT NULL,
   `USERNAME` varchar(10) NOT NULL,
   `ORDER_DATE` date NOT NULL,
   PRIMARY KEY (`ORDER_ID`),
   KEY `USERNAME` (`USERNAME`),
-  KEY `PROPERTY_ID` (`PROPERTY_ID`)
+  KEY `PROPERTY_ID` (`PROPERTY_ID`),
+  KEY `EMP_ID` (`EMP_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -57,15 +59,31 @@ CREATE TABLE IF NOT EXISTS `employee` (
   PRIMARY KEY (`EMP_ID`),
   UNIQUE KEY `EMAIL` (`EMAIL`),
   UNIQUE KEY `USERNAME` (`USERNAME`)
-) ENGINE=InnoDB AUTO_INCREMENT=10004 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10003 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `employee`
 --
 
 INSERT INTO `employee` (`EMP_ID`, `USERNAME`, `EMAIL`, `type`, `Password`, `Name`, `Address`) VALUES
-(10002, 'ArrowX17', 'iamsamix17@gmail.com', 'Admin', 'aaaaaaaa', 'Atique Morshed', '69 Mohakhali, Dhaka'),
-(10003, 'Sadat', 'sadat@sadat.com', 'agent', 'sadat12345', 'Sadat', 'Sadat');
+(10002, 'ArrowX17', 'iamsamix17@gmail.com', 'Admin', 'aaaaaaaa', 'Atique Morshed', '69 Mohakhali, Dhaka');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `payment`
+--
+
+DROP TABLE IF EXISTS `payment`;
+CREATE TABLE IF NOT EXISTS `payment` (
+  `PAYMENT_ID` varchar(10) NOT NULL,
+  `ORDER_ID` varchar(10) NOT NULL,
+  `Customer_name` varchar(100) NOT NULL,
+  `BILL_DATE` date NOT NULL,
+  `PAYMENT_METHOD` varchar(20) NOT NULL,
+  PRIMARY KEY (`PAYMENT_ID`),
+  KEY `ORDER_ID` (`ORDER_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -91,25 +109,18 @@ CREATE TABLE IF NOT EXISTS `preproperty` (
   `Image3` longblob,
   `Image4` longblob,
   `Image5` longblob,
-  `floor1` longblob,
-  `floor2` longblob,
-  `floor3` longblob,
-  `floor4` longblob,
-  `floor5` longblob,
   PRIMARY KEY (`PRE_ID`,`USERNAME`),
   KEY `USERNAME` (`USERNAME`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `preproperty`
 --
 
-INSERT INTO `preproperty` (`PRE_ID`, `USERNAME`, `verify`, `bedroom`, `washroom`, `balcony`, `size`, `street`, `city`, `area`, `Description`, `Image1`, `Image2`, `Image3`, `Image4`, `Image5`, `floor1`, `floor2`, `floor3`, `floor4`, `floor5`) VALUES
-(4, 'ArrowX17', 1, 2, 2, 2, 1, 'wada', 'dd', 'dd', 'wdswadwdadw', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(10, 'abudada', 0, 2, 3, 4, 1, 'dd', 'Dhaka', 'Dhaka', 'aaaa', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(11, 'ArrowX17', 0, 1, 2, 3, 6, 'Sadat', 'Sadat', 'Sadat', 'Sadat', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(12, 'ArrowX17', 0, 2, 1, 1, 1, '338 Elephant Road, Dhaka', 'Rangpur', 'a', 'aaa', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(15, 'ArrowX17', 0, 2, 3, 4, 1, '11', 'Dhaka', 'Banani', 'aaaa', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `preproperty` (`PRE_ID`, `USERNAME`, `verify`, `bedroom`, `washroom`, `balcony`, `size`, `street`, `city`, `area`, `Description`, `Image1`, `Image2`, `Image3`, `Image4`, `Image5`) VALUES
+(4, 'ArrowX17', 0, 2, 2, 2, 1, 'wada', 'dd', 'dd', 'wdswadwdadw', NULL, NULL, NULL, NULL, NULL),
+(10, 'abudada', 0, 2, 3, 4, 1, 'dd', 'Dhaka', 'Dhaka', 'aaaa', NULL, NULL, NULL, NULL, NULL),
+(11, 'ArrowX17', 0, 1, 2, 3, 6, 'Sadat', 'Sadat', 'Sadat', 'Sadat', NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -137,11 +148,6 @@ CREATE TABLE IF NOT EXISTS `property` (
   `Image3` longblob,
   `Image4` longblob,
   `Image5` longblob,
-  `floor1` longblob,
-  `floor2` longblob,
-  `floor3` longblob,
-  `floor4` longblob,
-  `floor5` longblob,
   PRIMARY KEY (`PROPERTY_ID`),
   KEY `EMP_ID` (`EMP_ID`),
   KEY `USERNAME` (`USERNAME`)
@@ -182,7 +188,14 @@ INSERT INTO `user` (`USERNAME`, `Password`, `EMAIL`, `Name`, `ADDRESS`) VALUES
 --
 ALTER TABLE `buy_order`
   ADD CONSTRAINT `buy_order_ibfk_1` FOREIGN KEY (`PROPERTY_ID`) REFERENCES `property` (`PROPERTY_ID`),
+  ADD CONSTRAINT `buy_order_ibfk_2` FOREIGN KEY (`EMP_ID`) REFERENCES `employee` (`EMP_ID`),
   ADD CONSTRAINT `buy_order_ibfk_3` FOREIGN KEY (`USERNAME`) REFERENCES `user` (`USERNAME`);
+
+--
+-- Constraints for table `payment`
+--
+ALTER TABLE `payment`
+  ADD CONSTRAINT `payment_ibfk_1` FOREIGN KEY (`ORDER_ID`) REFERENCES `buy_order` (`ORDER_ID`);
 
 --
 -- Constraints for table `preproperty`
