@@ -11,7 +11,6 @@ include_once 'resources/regFunc.php';
     $statement->execute(array(':PROPERTY_ID' => $PROPERTY_ID));
     while($row = $statement->fetch()) {
       $pname = $row['PROPERTY_NAME'];
-      $price = $row['PROPERTY_NAME'];
 
     }
 
@@ -84,5 +83,6 @@ include_once 'common/header.php';
      </div>
    </div>
 <?php
+$page_title = "HouseBuy - Home";
 include_once 'common/footer.php';
 ?>
