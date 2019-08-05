@@ -173,30 +173,30 @@ $conn = mysqli_connect($server, $username, $password, $dbName);
 							</div>
 						</li>
 					<?php } ?>
-				</ul>			
+				</ul>
 			</div>
 	<!-- Filter Panel End -->
 
 	<!-- All Products -->
 			<div class="col-lg-9">
-				<h5 class="text-center" id="textChange">All Properties</h5> <br> <br>	
+				<h5 class="text-center" id="textChange">All Properties</h5> <br> <br>
 
 				<div class="row" id="result">
-					<?php	
+					<?php
 					if (isset ($_GET["sort-submit"]))
 					{
-						sort_order1();  //for custom value 
-				   }				   
+						sort_order1();  //for custom value
+				   }
 				   else {
 					$sql = "SELECT * FROM  property";
 					$result = $conn -> query($sql);
 					while ($row = $result -> fetch_assoc()) {
-					?>					
+					?>
 					<div class="col-md-3 mb-2">
-						<div class="card-deck"> 
-							<div class="card border-secondary"> 
-							<a href="single-list.php?id=<?php echo $row['PROPERTY_ID'] ?>">	
-								<img src="img/bg" class="card-img-top" alt="">							
+						<div class="card-deck">
+							<div class="card border-secondary">
+							<a href="single-list.php?id=<?php echo $row['PROPERTY_ID'] ?>">
+								<img src="img/bg" class="card-img-top" alt="">
 								<div class="card-body">
 									<h5 class="card-title text-info text-center"><?= $row['PROPERTY_NAME'];?></h5>
 									<h6 class="card-title text-center"><?= $row['street'],', '. $row['area'],', '. $row['city']; ?></h6>
@@ -209,14 +209,11 @@ $conn = mysqli_connect($server, $username, $password, $dbName);
 											<h6 class="text-muted"><?= $row['BALCONY'];?> Balcony(s)</h6> <br>
 											<h6 class="text-muted"><?= $row['WASHROOM'];?> Washroom(s)</h6> <br>
 											</div>
-										</div> 
+										</div>
 								</div> 
 							</a>
 							<div class="card-footer">
-
 									<a href="buyconfirm.php?id=<?php echo $row['PROPERTY_ID'] ?>" target="_blank" class="btn btn-success btn-block"><h6 class="text-light"><?= $row['PRICE'];?> tk</h6></a>
-									
-								<!-- </form> -->
 								</div>
 							</div>
 						</div>
@@ -245,7 +242,7 @@ $conn = mysqli_connect($server, $username, $password, $dbName);
 				var city = get_filter_text('city');
 				var size = get_filter_text('size');
 				var bedroom = get_filter_text('bedroom');
-				var washroom = get_filter_text('washroom');				
+				var washroom = get_filter_text('washroom');
 				$.ajax ({
 						url : 'action.php',
 						method : 'POST',
