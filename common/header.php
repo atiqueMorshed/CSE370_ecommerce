@@ -30,7 +30,6 @@
 	<div id="preloder">
 		<div class="loader"></div>
 	</div>
-
 	<!-- Header section -->
 	<header class="header-section">
 		<div class="header-top">
@@ -71,7 +70,7 @@
 			<div class="row">
 				<div class="col-12">
 					<div class="site-navbar">
-						<a href="index.php" class="site-logo"><img src="img/logo.png" alt=""></a>
+						<a href="index.php" class="site-logo"><img src="img/logo1.png" alt=""></a>
 						<div class="nav-switch">
 							<i class="fa fa-bars"></i>
 						</div>

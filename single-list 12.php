@@ -1,5 +1,5 @@
 <?php
-include 'common/header.php';
+include_once 'common/header.php';
 
 $username = "root";
 $password = "";
@@ -167,7 +167,7 @@ $conn = mysqli_connect($server, $username, $password, $dbName);
 
   while ($row = mysqli_fetch_assoc($result)) { 
 		echo "<a target='_blank' href = 'buyconfirm.php?id=". $row['PROPERTY_ID'] ."'><h10 class='text-light'>TK: </h10>";
-	        echo "<h10 class='text-light'>" . $row['PRICE'] . "</h10> </a>";
+	        echo "<h10 class='text-light'>" . $row['PRICE'] . "</h10>";
   }
   
 ?>
@@ -382,24 +382,43 @@ echo $row['Description'];
 								<p><i class="fa fa-check-circle-o"></i> Electric Range</p>
 							</div>
 						</div>
-						<h3 class="sl-sp-title bd-no"></h3>
+						<h3 class="sl-sp-title bd-no">Floorplans</h3>
 						<div id="accordion" class="plan-accordion">
 							<div class="panel">
 								<div class="panel-header" id="headingOne">
-									<button class="panel-link active" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1"><i class="fa fa-angle-down"></i></button>
+									<button class="panel-link active" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1">First Floor: 	<i class="fa fa-angle-down"></i></button>
 								</div>
 								<div id="collapse1" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
 									<div class="panel-body">
 										
 
 
+<?php
+   $id = $_GET['id'];
+   $sql = "SELECT * FROM  property where PROPERTY_ID = $id";
+   $result = mysqli_query($conn, $sql);
+  // echo "$sql"; 
+  // $r1 = $result['PROPERTY_NAME'];
+   $resultCount = mysqli_num_rows($result);
+   // echo "$resultCount";
+  // echo "$result";
+
+  while ($row = mysqli_fetch_assoc($result)) { 
+		
+	        echo $row['floor1'];
+		
+
+  }
+  
+?>
 
 									</div>
 								</div>
 							</div>
 							<div class="panel">
 								<div class="panel-header" id="headingTwo">
-									
+									<button class="panel-link" data-toggle="collapse" data-target="#collapse2" aria-expanded="true" aria-controls="collapse2">Second Floor	<i class="fa fa-angle-down"></i>
+									</button>
 								</div>
 								<div id="collapse2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
 									<div class="panel-body">
@@ -408,6 +427,23 @@ echo $row['Description'];
 
 
 
+<?php
+   $id = $_GET['id'];
+   $sql = "SELECT * FROM  property where PROPERTY_ID = $id";
+   $result = mysqli_query($conn, $sql);
+  // echo "$sql"; 
+  // $r1 = $result['PROPERTY_NAME'];
+   $resultCount = mysqli_num_rows($result);
+   // echo "$resultCount";
+  // echo "$result";
+
+  while ($row = mysqli_fetch_assoc($result)) { 
+
+	echo $row['floor2'];
+		
+  }
+  
+?>
 
 
 
@@ -419,13 +455,31 @@ echo $row['Description'];
 							</div>
 							<div class="panel">
 								<div class="panel-header" id="headingThree">
-								
+									<button class="panel-link" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">Third Floor : <i class="fa fa-angle-down"></i>
+									</button>
 								</div>
 								<div id="collapse3" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
 									<div class="panel-body">
 										
 
 
+<?php
+   $id = $_GET['id'];
+   $sql = "SELECT * FROM  property where PROPERTY_ID = $id";
+   $result = mysqli_query($conn, $sql);
+  // echo "$sql"; 
+  // $r1 = $result['PROPERTY_NAME'];
+   $resultCount = mysqli_num_rows($result);
+   // echo "$resultCount";
+  // echo "$result";
+
+  while ($row = mysqli_fetch_assoc($result)) { 
+
+	echo $row['floor3'];
+		
+  }
+  
+?>
 
 
 

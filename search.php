@@ -53,10 +53,10 @@ $conn = mysqli_connect($server, $username, $password, $dbName);
 <!-- Search bar -->
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-7 pb-5">
+			<div class="col-lg-7 pb-5 pt-3 pl-5">
 			<form action="" method="GET" id="srchForm"> 
 				<div class="input-group p-5">
-					<input type="text" class="form-control" placeholder="City or Property Name" name="q" maxlength="20">
+					<input type="text" class="form-control" placeholder="Street, Area, City or Property Name" name="q" maxlength="20">
 					<div class="input-group-btn">
 						<button class="btn btn-secondary bg-primary" id="srch" type="submit" name="submit">
 							<b class="glyphicon glyphicon-search">Find Property</b>
@@ -68,8 +68,8 @@ $conn = mysqli_connect($server, $username, $password, $dbName);
 <!-- Search bar End -->
 
 <!-- Sort bar -->
-	<div class="col-lg-4 pb-5">
-		<div class="form-group p-5">
+	<div class="col-lg-4 pt-4">
+		<div class="form-group p-3">
 			<form action="" method="get">
 				<select class="form-control bg-light" name="sortBy">
 					<option value="Default">Default</option>
@@ -81,7 +81,7 @@ $conn = mysqli_connect($server, $username, $password, $dbName);
 					<option value="SIZE DESC">Size (High to Low)</option>
 				</select>
 				<div class="input-group-btn">
-						<button class="btn btn-secondary bg-primary" id="sort" type="submit" name="sort-submit">
+						<button class="btn btn-success bg-primary btn-block" id="sort" type="submit" name="sort-submit">
 						<b>Sort</b>
 						</button>
 					</div>	

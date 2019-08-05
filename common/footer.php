@@ -3,7 +3,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-3 col-md-6 footer-widget">
-        <img src="img/logo.png" alt="">
+        <img src="img/logo1.png" alt="">
         <p>Lorem ipsum dolo sit azmet, consecter dipise consult  elit. Maecenas mamus antesme non anean a dolor sample tempor nuncest erat.</p>
         <div class="social">
           <a href="https://www.facebook.com"><i class="fa fa-facebook"></i></a>

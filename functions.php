@@ -61,7 +61,7 @@ function srch_rslt ($kwd) {
 		while ($output = mysqli_fetch_assoc($find_Result)) {
 			echo							
 			"<div class='pr-5 pl-3'>
-			 <a href = '#'>
+			 <a href = 'single-list.php?id=". $output['PROPERTY_ID'] ."'>
 			<div class='card'>
 			
 			<div class='card-header bg-info text-white'>
@@ -74,7 +74,7 @@ function srch_rslt ($kwd) {
 			 <div class='pl-5'>
 			<strong ><p class='card-text text-center'>". $output['SIZE'] ,  " Sqft."," , " .$output['BEDROOM'],  " Bedrooms", " , " .  $output['WASHROOM'] , " Washrooms", " , ".  $output['BALCONY'] , " Balconies" . "</p> 
 			<p class='card-text text-center'>". $output['Description'] . "</p>  </strong> </div>  </a>
-			<a href = '#'> <button type='button' class='btn btn-success btn-block'>" ."Price " , $output['PRICE'] . "</button> </a>
+			<a target='_blank' href = 'buyconfirm.php?id=". $output['PROPERTY_ID'] ."'> <button type='button' class='btn btn-success btn-block'>" ."Price " , $output['PRICE'] . "</button> </a>
 
 		</div>
 		</div>
@@ -115,7 +115,7 @@ function sort_order () {
 	  	 while ($output = mysqli_fetch_assoc($result)) {
 			echo										
 			"<div class='pr-5 pl-3'>
-			 <a href = '#'>
+			<a href = 'single-list.php?id=". $output['PROPERTY_ID'] ."'>
 			<div class='card'>
 			
 			<div class='card-header bg-info text-white'>
@@ -128,7 +128,7 @@ function sort_order () {
 			 <div class='pl-5'>
 			<strong ><p class='card-text text-center'>". $output['SIZE'] ,  " Sqft."," , " .$output['BEDROOM'],  " Bedrooms", " , " .  $output['WASHROOM'] , " Washrooms", " , ".  $output['BALCONY'] , " Balconies" . "</p> 
 			<p class='card-text text-center'>". $output['Description'] . "</p>  </strong> </div>  </a>
-			<a href = '#'> <button type='button' class='btn btn-success btn-block'>" ."Price " , $output['PRICE'] . "</button> </a>
+			<a target='_blank' href = 'buyconfirm.php?id=". $output['PROPERTY_ID'] ."'> <button type='button' class='btn btn-success btn-block'>" ."Price " , $output['PRICE'] . "</button> </a>
 
 		</div>
 		</div>
@@ -194,7 +194,8 @@ function sort_order1 () {
 	  	 while ($row = mysqli_fetch_assoc($result)) {
 			$output = '<div class="col-md-3 mb-2">
             <div class="card-deck"> 
-                <div class="card border-secondary"> 
+				<div class="card border-secondary"> 
+				<a href = "single-list.php?id='. $row["PROPERTY_ID"] .'">
                     <img src="img/bg" class="card-img-top" alt="">  
                     <div class="card-body">
                         <h5 class="card-title text-info text-center"> '.$row['PROPERTY_NAME'].'</h5>
@@ -209,9 +210,10 @@ function sort_order1 () {
                                 <h6 class="text-muted">'. $row['WASHROOM'].' Washroom(s)</h6> <br>
                                 </div>
                             </div> 
-                    </div>
+					</div>
+					</a>
                     <div class="card-footer">
-                        <a href="#" class="btn btn-success btn-block"> <h6 class="text-light">'. $row['PRICE'].' tk</h6> </a>
+                        <a target ="_blank" href="buyconfirm.php?id='. $row["PROPERTY_ID"] .'" class="btn btn-success btn-block"> <h6 class="text-light">'. $row['PRICE'].' tk</h6> </a>
                     </div>
                 </div>
             </div>

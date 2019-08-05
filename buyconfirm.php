@@ -11,7 +11,6 @@ include_once 'resources/regFunc.php';
     $statement->execute(array(':PROPERTY_ID' => $PROPERTY_ID));
     while($row = $statement->fetch()) {
       $pname = $row['PROPERTY_NAME'];
-      $price = $row['PROPERTY_NAME'];
 
     }
 
@@ -47,7 +46,7 @@ include_once 'common/header.php';
 <!-- Page top section -->
 <section class="page-top-section set-bg" data-setbg="img/page-top-bg.jpg">
   <div class="container text-white">
-    <h2>Confirm Order</h2>
+    <h2> Confirm Order</h2>
   </div>
 </section>
 <!--  Page top end -->
