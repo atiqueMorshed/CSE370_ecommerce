@@ -81,6 +81,52 @@ $conn = mysqli_connect($server, $username, $password, $dbName);
 	</section>
 -- Properties section end -->
 
+<!-- Gallery section -->
+	<section class="gallery-section spad">
+		<div class="container">
+			<div class="section-title text-center">
+				<h3>Popular Places</h3>
+				<p>We understand the value and importance of place</p>
+			</div>
+			<div class="gallery">
+				<div class="grid-sizer"></div>
+				<a href="search.php?q=chittagong&submit=" class="gallery-item grid-long set-bg" data-setbg="img/places/chittagong.jpg">
+					<div class="gi-info">
+						<h3>Chittagong</h3>
+						<p><?php
+						$sql = "SELECT * from property WHERE city = 'Chittagong'";
+						$result = mysqli_query($conn, $sql);
+						$resultCount = mysqli_num_rows($result);
+						echo "$resultCount", " Properties";
+						 ?></p>
+					</div>
+				</a>
+				<a href="search.php?q=Dhaka&submit=" class="gallery-item grid-wide set-bg" data-setbg="img/places/dhaka.jpg">
+					<div class="gi-info">
+						<h3>Dhaka</h3>
+						<p><?php
+						$sql = "SELECT * from property WHERE city = 'Dhaka'";
+						$result = mysqli_query($conn, $sql);
+						$resultCount = mysqli_num_rows($result);
+						echo "$resultCount", " Properties";
+						 ?></p>
+					</div>
+				</a>
+				<a href="search.php?q=Rangpur&submit=" class="gallery-item grid-long set-bg" data-setbg="img/places/rangpur.jpg">
+					<div class="gi-info">
+						<h3>Rangpur</h3>
+						<p><?php
+						$sql = "SELECT * from property WHERE city = 'Rangpur'";
+						$result = mysqli_query($conn, $sql);
+						$resultCount = mysqli_num_rows($result);
+						echo "$resultCount", " Properties";
+						 ?></p>
+					</div>
+				</a>
+			</div>
+		</div>
+	</section>
+<!-- Gallery section end -->
 
 <!-- Services section -->
 	<section class="services-section spad set-bg" data-setbg="img/service-bg.jpg">
@@ -122,54 +168,7 @@ $conn = mysqli_connect($server, $username, $password, $dbName);
 		</div>
 	</section>
 <!-- Services section end -->
-
-<!-- Gallery section -->
-	<section class="gallery-section spad">
-		<div class="container">
-			<div class="section-title text-center">
-				<h3>Popular Places</h3>
-				<p>We understand the value and importance of place</p>
-			</div>
-			<div class="gallery">
-				<div class="grid-sizer"></div>
-				<a href="search.php?q=chittagong&submit=" class="gallery-item grid-long set-bg" data-setbg="img/places/chittagong.jpg">
-					<div class="gi-info">
-						<h3>Chittagong</h3>
-						<p><?php 
-						$sql = "SELECT * from property WHERE city = 'Chittagong'";
-						$result = mysqli_query($conn, $sql);		
-						$resultCount = mysqli_num_rows($result);
-						echo "$resultCount", " Properties";
-						 ?></p>
-					</div>
-				</a>
-				<a href="search.php?q=Dhaka&submit=" class="gallery-item grid-wide set-bg" data-setbg="img/places/dhaka.jpg">
-					<div class="gi-info">
-						<h3>Dhaka</h3>
-						<p><?php 
-						$sql = "SELECT * from property WHERE city = 'Dhaka'";
-						$result = mysqli_query($conn, $sql);		
-						$resultCount = mysqli_num_rows($result);
-						echo "$resultCount", " Properties";
-						 ?></p>
-					</div>
-				</a>
-				<a href="search.php?q=Rangpur&submit=" class="gallery-item grid-long set-bg" data-setbg="img/places/rangpur.jpg">
-					<div class="gi-info">
-						<h3>Rangpur</h3>
-						<p><?php 
-						$sql = "SELECT * from property WHERE city = 'Rangpur'";
-						$result = mysqli_query($conn, $sql);		
-						$resultCount = mysqli_num_rows($result);
-						echo "$resultCount", " Properties";
-						 ?></p>
-					</div>
-				</a>
-			</div>
-		</div>
-	</section>
-<!-- Gallery section end -->
-
+<br><br>
 
 <!-- Clients section -->
 	<div class="clients-section">
