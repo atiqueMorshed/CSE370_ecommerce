@@ -67,8 +67,12 @@
   if(isset($_SESSION['username']))
   {
 ?>
+
+
+
+
 <section class="jumbotron text-center">
-        <div class="container" style="background-color:lavenderblush">
+        <div class="container" style="background-color:#F7F7F7;">
      <h3 class="lead text-muted"><?php echo "{$row['USERNAME']} wants to add a property  at Street:{$row['street']}, City:{$row['city']}, Area:{$row['area']}" ?></h3>
      <form method="post" action="" enctype="multipart/form-data">
         <input type="propertyname" name="propertyname" placeholder="Enter property name.." class="form-control form-control-lg" >
@@ -79,6 +83,10 @@
     <br>
   </div>
 </section>
+
+
+
+
   <?php
   }
   else{
