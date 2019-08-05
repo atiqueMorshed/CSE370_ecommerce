@@ -84,6 +84,5 @@ include_once 'common/header.php';
      </div>
    </div>
 <?php
-$page_title = "HouseBuy - Home";
 include_once 'common/footer.php';
 ?>
