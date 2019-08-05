@@ -9,10 +9,12 @@
     $form_errors = array_merge($form_errors, check_empty_fields($required_fields));
     $fields_to_check_length = array('username'=>6, 'password'=> 6);
     $form_errors =  array_merge($form_errors, check_min_length($fields_to_check_length));
+    $name = $_POST['name'];
+    $form_errors = array_merge($form_errors, check_name($name));
     $form_errors = array_merge($form_errors, check_email($_POST));
 
     $username = $_POST['username'];
-    $name = $_POST['name'];
+
     $email = $_POST['email'];
     $password = $_POST['password'];
     $address = $_POST['address'];

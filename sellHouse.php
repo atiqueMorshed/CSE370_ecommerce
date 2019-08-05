@@ -152,7 +152,7 @@ include_once 'common/header.php';
 							<br>
               <div class="form-row">
                 <div class="form-group col-md-6">
-                  <input type="number" class="form-control form-control-lg" id="size" placeholder="Size(in acres)" name="size">
+                  <input type="number" class="form-control form-control-lg" id="size" placeholder="Size(in square foot)" name="size">
                 </div>
                 <div class="form-group col-md-6">
                   <input type="number" class="form-control form-control-lg" id="bedroom" placeholder="Bedroom(s)" name="bedroom">

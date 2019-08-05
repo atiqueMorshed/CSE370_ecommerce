@@ -51,7 +51,7 @@ include_once 'common/header.php';
 	<!-- Page top section -->
 	<section class="page-top-section set-bg" data-setbg="img/page-top-bg.jpg">
 		<div class="container text-white">
-			<h2>Blog grid</h2>
+			<h2>Login Here</h2>
 		</div>
 	</section>
 	<!--  Page top end -->
