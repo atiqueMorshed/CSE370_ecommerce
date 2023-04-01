@@ -18,7 +18,7 @@
   "homepage": "https://github.com/ArrowX17/CSE370_ecommerce#readme",
   "dependencies": {
     "bootstrap": "^4.3.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "popper.js": "^1.15.0",
     "sweetalert2": "^8.14.0"
   }
